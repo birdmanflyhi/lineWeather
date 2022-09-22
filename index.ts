@@ -2,6 +2,11 @@
 import { ClientConfig, Client, middleware, MiddlewareConfig, WebhookEvent, TextMessage, MessageAPIResponseBase } from '@line/bot-sdk';
 import express, { Application, Request, Response } from 'express';
 
+//Weather dependencies app
+import bodyParser from "body-parser";
+import { DotenvConfigOptions } from 'dotenv';
+
+
 // Setup all LINE client and Express configurations.
 const clientConfig: ClientConfig = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
@@ -20,6 +25,9 @@ const client = new Client(clientConfig);
 
 // Create a new Express application.
 const app: Application = express();
+
+
+
 
 // Function handler to receive the text.
 const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponseBase | undefined> => {
