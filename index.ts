@@ -11,13 +11,22 @@ const apiKey = `${process.env.API_KEY}`;
 var longitude = '${process.env.Longitude}';
 var latitude = '${process.env.Latitude}';
 
+function sendWeatherStandard(){
+
+  const response: TextMessage = {
+    type: 'text',
+    text: 'Let me get the weather for you one second.--not complete yet',
+    };
+
+};
+
 // Get city name passed in the form
 //let city = text returned
 
 // Use that city name to fetch data
 // Use the API_KEY in the '.env' file
 /*
-function sendWeatherRequestStandard(){
+function sendWeatherStandard(){
 
   app.post('/', function(lat, long) {
 
@@ -82,19 +91,21 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { replyToken } = event;
   const { text } = event.message;
   
-
-  if(text == 'Matt'){
+  if(text == 'Weather'){
+    sendWeatherStandard()
+  }
+  else if(text == 'Matt'){
     const response: TextMessage = {
     type: 'text',
-    text: 'Hello Master',
+    text: 'Matt is my creator. My everything. He is my rock.',
     };
-    await client.replyMessage(replyToken, response);
 
   }else {
     const response: TextMessage = {
       type: 'text',
       text,
     };
+
     await client.replyMessage(replyToken, response);
 
   };
