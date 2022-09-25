@@ -92,7 +92,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { text } = event.message;
   
   if(text == 'Weather'){
-    sendWeatherStandard();
+   // sendWeatherStandard();
+   const response: TextMessage = {
+    type: 'text',
+    text: 'Weather Coming',
+    };
   }
   else if(text == 'Matt'){
     const response: TextMessage = {
