@@ -82,14 +82,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { replyToken } = event;
   const { text } = event.message;
   
-
   if(text == 'Matt'){
     const response: TextMessage = {
     type: 'text',
     text: 'Matt is my creator. My everything. He is my rock.',
     };
-    await client.replyMessage(replyToken, response);
-
   }else {
     const response: TextMessage = {
       type: 'text',
