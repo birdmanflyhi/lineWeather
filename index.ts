@@ -5,7 +5,49 @@ import express, { Application, Request, Response } from 'express';
 //Weather dependencies app
 import bodyParser from "body-parser";
 import { DotenvConfigOptions } from 'dotenv';
+import { request } from 'http';
 
+const apiKey = `${process.env.API_KEY}`;
+var longitude = '${process.env.Longitude}';
+var latitude = '${process.env.Latitude}';
+
+// Get city name passed in the form
+//let city = text returned
+
+// Use that city name to fetch data
+// Use the API_KEY in the '.env' file
+/*
+function sendWeatherRequestStandard(){
+
+  app.post('/', function(lat, long) {
+
+      let latitude =lat;
+      let longitude = long;
+
+      let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
+
+
+    
+      
+     request(url, function(err,response, body)){
+
+      if (err){
+        //text error
+        const response: TextMessage = {
+          type: 'text',
+          text:  'Error Matt',
+        };
+      }
+       
+     };
+
+
+  
+
+};
+
+let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
+*/
 
 // Setup all LINE client and Express configurations.
 const clientConfig: ClientConfig = {
@@ -39,15 +81,28 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   // Process all message related variables here.
   const { replyToken } = event;
   const { text } = event.message;
+  
 
-  // Create a new message.
-  const response: TextMessage = {
+  if(text == 'Matt'){
+    const response: TextMessage = {
     type: 'text',
-    text,
+    text: 'Hello Master',
+    };
+    await client.replyMessage(replyToken, response);
+
+  }else {
+    const response: TextMessage = {
+      type: 'text',
+      text,
+    };
+    await client.replyMessage(replyToken, response);
+
   };
 
+  // Create a new message.
+  
+
   // Reply to the user.
-  await client.replyMessage(replyToken, response);
 };
 
 // Register the LINE middleware.
