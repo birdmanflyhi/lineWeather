@@ -10,7 +10,7 @@ import { request } from 'http';
 const apiKey = `${process.env.API_KEY}`;
 var longitude = '${process.env.Longitude}';
 var latitude = '${process.env.Latitude}';
-
+/*
 function sendWeatherStandard(){
 
   const response: TextMessage = {
@@ -97,6 +97,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     type: 'text',
     text: 'Weather Coming',
     };
+
   }
   else if(text == 'Matt'){
     const response: TextMessage = {
@@ -110,9 +111,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       text,
     };
 
-    await client.replyMessage(replyToken, response);
 
   };
+  await client.replyMessage(replyToken, response);
 
   // Create a new message.
   
