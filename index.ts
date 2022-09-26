@@ -8,8 +8,9 @@ import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
 
 const apiKey = `${process.env.API_KEY}`;
-var longitude = '${process.env.Longitude}';
-var latitude = '${process.env.Latitude}';
+var longitude = `${process.env.Longitude}`;
+var latitude = `${process.env.Latitude}`;
+
 
 // Get city name passed in the form
 //let city = text returned
@@ -81,9 +82,21 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   // Process all message related variables here.
   const { replyToken } = event;
   const { text } = event.message;
+
+  async function weatherRequestStandard(){
+    
+    const response: TextMessage = {
+      type: 'text',
+      text: 'Building weather function',
+      };
+      await client.replyMessage(replyToken, response);
+  }
+
   
-  
-  if(text == 'Matt'){
+  if (text== 'Weather'){
+    weatherRequestStandard();
+
+  }else if(text == 'Matt'){
     const response: TextMessage = {
     type: 'text',
     text: 'Matt is my creator. My everything. He is my rock.',
