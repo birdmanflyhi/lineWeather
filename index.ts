@@ -82,46 +82,22 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   // Process all message related variables here.
   const { replyToken } = event;
   const { text } = event.message;
-/*
+
   async function weatherRequestStandard(){
-    
-    app.post('/', function() {
+    const fetch = require('node-fetch');
 
-     // let latitude =lat;
-     // let longitude = long;
-      let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
+    let url = "https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}";
+    let settings = {method: "Get"};
 
-     request(url, function(err:any,response:any, body:any)){
-
-      if (err){
-        //text error
-        const response: TextMessage = {
-          type: 'text',
-          text:  'Error on the weather data Matt',
-        };
-        await client.replyMessage(replyToken, response);
-
-      }else {
-        const response: TextMessage = {
-          type: 'text',
-          text:  'Error on the weather data Matt',
-        };
-        await client.replyMessage(replyToken, response);
-      }
-       
-     };
-
-
-  
+    fetch(url,settings)
+      .then((res: { json: () => any; }) => res.json())
+      .then((JSON:string)=> {
+        console.log(JSON);
+        reply(JSON);
+      });
 
 };
 
-    const response: TextMessage = {
-      type: 'text',
-      text: 'Building weather function',
-      };
-      await client.replyMessage(replyToken, response);
-  }*/
 async function reply(sendThis:any){
   const response: TextMessage = {
     type: 'text',
@@ -131,28 +107,18 @@ async function reply(sendThis:any){
 };
   
   if (text== 'Weather'){
-    //weatherRequestStandard();
-    reply('Buidling the weather function')
+    weatherRequestStandard();
+    //reply('Buidling the weather function')
 
   }else if(text == 'Matt'){
-    /*
-    const response: TextMessage = {
-    type: 'text',
-    text: 'Matt is my creator. My everything. He is my rock.',
-    };
-    await client.replyMessage(replyToken, response);*/
     reply('Matt is my creator. My everything. He is my rock.')
-
 
   }else {
     reply(text);
 
   };
 
-  // Create a new message.
   
-
-  // Reply to the user.
 };
 
 // Register the LINE middleware.
