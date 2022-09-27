@@ -84,18 +84,23 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { text } = event.message;
 
   async function weatherRequestStandard(){
-    const fetch = require('node-fetch');
-
-    let url = "https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}";
-    let settings = {method: "Get"};
-
-    fetch(url,settings)
-      .then((res: { json: () => any; }) => res.json())
-      .then((JSON:string)=> {
-        console.log(JSON);
-        reply(JSON);
-      });
-
+    const url = "https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}";
+const options = {
+  method: "POST",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json;charset=UTF-8",
+  },
+  body: JSON.stringify({
+    a: 10,
+    b: 20,
+  }),
+};
+fetch(url, options)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
 };
 
 async function reply(sendThis:any){
