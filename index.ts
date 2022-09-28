@@ -80,11 +80,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   async function weatherRequestStandard(){
     fetch('https://quotes.toscrape.com/random')
-    .then((response) => response.text())
-    .then((body) => {
-        reply(body);
-    }); 
-
+    .then(response => {
+      for(const pair of response.headers){
+          console.log(`${pair[0]}: ${pair[1]}`); 
+        }
+      return response.text();
+  }).then(data => {
+      console.log(data);
+  });
   };
 
 async function reply(sendThis:any){
