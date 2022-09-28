@@ -6,6 +6,8 @@ import express, { Application, Request, Response } from 'express';
 import bodyParser from "body-parser";
 import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
+import fetch from 'node-fetch';
+
 
 const apiKey = `${process.env.API_KEY}`;
 var longitude = `${process.env.Longitude}`;
