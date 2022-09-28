@@ -28,8 +28,6 @@ function sendWeatherRequestStandard(){
       let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
 
 
-    
-      
      request(url, function(err,response, body)){
 
       if (err){
@@ -41,9 +39,6 @@ function sendWeatherRequestStandard(){
       }
        
      };
-
-
-  
 
 };
 
@@ -70,8 +65,6 @@ const client = new Client(clientConfig);
 const app: Application = express();
 
 
-
-
 // Function handler to receive the text.
 const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponseBase | undefined> => {
   // Process all variables here.
@@ -84,24 +77,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { text } = event.message;
 
   async function weatherRequestStandard(){
-    const url = "https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}";
-const options = {
-  method: "POST",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json;charset=UTF-8",
-  },
-  body: JSON.stringify({
-    a: 10,
-    b: 20,
-  }),
-};
-fetch(url, options)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
-};
+    fetch('https://quotes.toscrape.com/random')
+    .then((response) => response.text())
+    .then((body) => {
+        reply(body);
+    }); 
+  };
 
 async function reply(sendThis:any){
   const response: TextMessage = {
