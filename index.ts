@@ -79,13 +79,18 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const cheerio= require("cheerio");
 
 
-  async function weatherRequestStandard(){
+  async function quoteRequestMotivate(){
     fetch('https://quotes.toscrape.com/random')
     .then((response) => response.text())
     .then((body) => {
       const $ = cheerio.load(body);
       reply($('.text').text());
     }); 
+
+  };
+
+  async function weatherRequestStandard(){
+   reply('Working on it-Matt');
 
   };
 
@@ -97,18 +102,21 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
   
-  if (text== 'Weather'){
-    weatherRequestStandard();
-    //reply('Buidling the weather function')
+  
+  switch (text) {
+    case 'Weather':
+      weatherRequestStandard();
+      break;
+    case 'Matt':
+      reply('Matt is my creator. My everything. He is my rock.');
+      break;
+    case 'Motivate':
+      quoteRequestMotivate();
+      break;
+    default:
+      reply(text);
 
-  }else if(text == 'Matt'){
-    reply('Matt is my creator. My everything. He is my rock.')
-
-  }else {
-    reply(text);
-
-  };
-
+  }
   
 };
 
