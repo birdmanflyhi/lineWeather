@@ -103,14 +103,14 @@ async function reply(sendThis:any){
 };
   
   
-  switch (text) {
-    case 'Weather' || 'Weather ':
+  switch (text.trim()) {
+    case 'Weather':
       weatherRequestStandard();
       break;
-    case 'Matt' || 'Matt ':
+    case 'Matt':
       reply('Matt is my creator. My everything. He is my rock.');
       break;
-    case 'Motivate' || 'Motivate ':
+    case 'Motivate':
       quoteRequestMotivate();
       break;
     default:
