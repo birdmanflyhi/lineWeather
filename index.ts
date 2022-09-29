@@ -105,7 +105,7 @@ async function reply(sendThis:any){
   
   switch (text) {
     case 'Weather':
-      weatherRequestStandard();
+      quoteRequestMotivate();
       break;
     case 'Matt':
       reply('Matt is my creator. My everything. He is my rock.');
