@@ -8,7 +8,6 @@ import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
 import fetch from 'node-fetch';
 
-
 const apiKey = `${process.env.API_KEY}`;
 var longitude = `${process.env.Longitude}`;
 var latitude = `${process.env.Latitude}`;
@@ -77,17 +76,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   // Process all message related variables here.
   const { replyToken } = event;
   const { text } = event.message;
+  const cheerio= require("cheerio");
+
 
   async function weatherRequestStandard(){
     fetch('https://quotes.toscrape.com/random')
-    .then(response => {
-      for(const pair of response.headers){
-          reply(`${pair[0]}: ${pair[1]}`); 
-        }
-      return response.text();
-  }).then(data => {
-      reply(data);
-  });
+    .then((response) => response.text())
+    .then((body) => {
+      const $ = cheerio.load(body);
+      reply($('.text').text());
+    }); 
+
   };
 
 async function reply(sendThis:any){
