@@ -4,6 +4,7 @@ declare global {
       CHANNEL_ACCESS_TOKEN: string;
       CHANNEL_SECRET: string;
       PORT: string;
+      API_KEY: string;
     }
   }
 }

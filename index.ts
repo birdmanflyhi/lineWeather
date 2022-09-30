@@ -89,9 +89,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   };
 
+  var latitude:number= 26.640628;
+  var longitude:number = -81.8723084;
   async function weatherRequestStandard(){
    //reply('Working on it-Matt');
-   reply(latitude);
+   reply(apiKey);
    /*
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
