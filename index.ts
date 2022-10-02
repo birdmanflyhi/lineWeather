@@ -1,6 +1,6 @@
 // Import all dependencies, mostly using destructuring for better view.
 import { ClientConfig, Client, middleware, MiddlewareConfig, WebhookEvent, TextMessage, MessageAPIResponseBase } from '@line/bot-sdk';
-import express, { Application, Request, Response } from 'express';
+import express, { Application, Request, response, Response } from 'express';
 
 //Weather dependencies app
 import bodyParser from "body-parser";
@@ -96,8 +96,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
-   .then((data) => console.log(data))
+   .then((data) =>  function(){
+     if(data !== undefined && data === "object"){
+      reply('It is JSON');
+       
+     }else return reply('Error: ');
+   })
+   
+   
     
+   
+   
    };
 
   
