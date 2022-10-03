@@ -96,13 +96,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
-   .then((data) =>  function(){
-     if(data !== undefined && typeof data === "object"){
-      reply('It is JSON');
-       
-     }else reply('Error: ');
-   })
-   
+   .then((data) =>  console.log(data.weather))
    
     
    
