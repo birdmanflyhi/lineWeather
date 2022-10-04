@@ -98,10 +98,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
-     reply(JSON.stringify(data.current))
-     reply(typeof data.current)
-     hourly = data.hourly;
-     reply("Hourly: "+ typeof hourly);
+     //reply(JSON.stringify(data.current))
+     //reply(typeof data.current)
+     hourly = JSON.stringify(data.hourly);
+     reply(hourly);
      //reply(data.hourly);
    })
    
