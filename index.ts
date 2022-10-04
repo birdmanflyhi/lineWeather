@@ -102,11 +102,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      //console.log(JSON.stringify(data.hourly))
      //reply(typeof data.current)
      hourly = ((data.hourly))
-     //console.log(hourly);
-     for(i =0; i < hourly.length; i++ )
-     {
-      reply(hourly[i]);
-     }
+     console.log(typeof hourly);
+     
 
      
      //reply(JSON.stringify(hourly));
