@@ -103,9 +103,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      //reply(typeof data.current)
      hourly = ((data.hourly))
      console.log(hourly[0]);
-     
+     hourly.forEach(getLow);
 
-     
+      function getLow(){
+        console.log('Hourly array: '+ i);
+        i++;
+      } 
      //reply(JSON.stringify(hourly));
      
      }); 
