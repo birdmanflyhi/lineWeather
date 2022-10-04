@@ -91,7 +91,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
-  var hourly:any = Array;
+  var hourly:string;
   async function weatherRequestStandard(){
    //reply('Working on it-Matt');
    
