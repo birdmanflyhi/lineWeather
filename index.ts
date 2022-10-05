@@ -107,9 +107,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      hourly.forEach(getBest);
 
       function getBest(){
+
         //console.log('Hourly array: '+ i);
-        let unix_timestamp = hourly[0];
-          console.log(hourly[0]);
+        //let unix_timestamp = hourly[0];
+          console.log(data.hourly.dt);
       /*
         var date = new Date(unix_timestamp *1000);
         var hours = date.getHours();
@@ -120,7 +121,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
         console.log(formattedTime);
         */
-        i++;
+       // i++;
       } 
      //reply(JSON.stringify(hourly));
      
