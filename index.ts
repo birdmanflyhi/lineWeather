@@ -91,7 +91,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
-  let hourly: string[];
+  
+  /*let hourly:{dt:number,temp:number,feels_like:number,pressure:number,humidity:number,
+  dew_point:number,uvi:number,clouds:number,visibility:number,wind_speed:number,
+  wind_deg:number,wind_gust:number,weather:[],pop:number};*/
+  let hourly:string[];
+ 
   var i:number = 0;
   async function weatherRequestStandard(){
    //reply('Working on it-Matt');
@@ -102,9 +107,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      //console.log(JSON.stringify(data.hourly))
      //reply(typeof data.current)
     // hourly = 
+  
+
      hourly = ((data.hourly))
      //console.log(hourly);
-    
+     
      hourly.forEach(getBest);
 
       function getBest(){
@@ -112,7 +119,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
          
-          console.log(hourly);
+          console.log(typeof hourly);
       /*
         var date = new Date(unix_timestamp *1000);
         var hours = date.getHours();
