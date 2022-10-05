@@ -116,7 +116,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       function getBest(){
         let obj = (hourly[i]);
-        console.log(data.dt);
+        console.log(obj[0]);
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
        // var obj=JSON.parse(hourly[i]);
