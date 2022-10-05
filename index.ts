@@ -109,7 +109,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     // hourly = 
   
    // console.log(data.dt);
-     hourly = ((data.hourly.dt))
+     hourly = ((data.hourly[0]))
      //console.log(hourly);
      
      hourly.forEach(getBest);
