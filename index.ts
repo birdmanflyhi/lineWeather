@@ -95,7 +95,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   /*let hourly:{dt:number,temp:number,feels_like:number,pressure:number,humidity:number,
   dew_point:number,uvi:number,clouds:number,visibility:number,wind_speed:number,
   wind_deg:number,wind_gust:number,weather:[],pop:number};*/
-  let hourly:string[];
+ let hourly:string[];
  
   var i:number = 0;
   async function weatherRequestStandard(){
@@ -118,8 +118,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
-         
-          console.log(hourly[i][0]);
+          console.log(hourly[i][data.dt]);
           i++;
       /*
         var date = new Date(unix_timestamp *1000);
