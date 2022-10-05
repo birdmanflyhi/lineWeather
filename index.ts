@@ -101,6 +101,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    .then((data) => {
      //console.log(JSON.stringify(data.hourly))
      //reply(typeof data.current)
+    // hourly = 
      hourly = ((data.hourly))
      //console.log(hourly);
     
@@ -110,7 +111,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
-          console.log(data.hourly.dt);
+         
+          console.log(hourly);
       /*
         var date = new Date(unix_timestamp *1000);
         var hours = date.getHours();
