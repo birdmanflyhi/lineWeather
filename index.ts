@@ -108,8 +108,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      //reply(typeof data.current)
     // hourly = 
   
-    console.log(data.dt);
-     hourly = ((data.hourly))
+   // console.log(data.dt);
+     hourly = ((data.hourly.dt))
      //console.log(hourly);
      
      hourly.forEach(getBest);
@@ -118,8 +118,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
-        var obj=JSON.parse(hourly[i]);
-          console.log(obj);
+       // var obj=JSON.parse(hourly[i]);
+          console.log(hourly[i]);
           i++;
       /*
         var date = new Date(unix_timestamp *1000);
