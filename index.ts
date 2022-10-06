@@ -107,7 +107,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     hourly = (data.hourly);
     
     for (let i in hourly){
-      console.log(i + ": "+ hourly[i])
+      console.log(i + ": "+ JSON.parse(hourly[i]))
      
     }
 
