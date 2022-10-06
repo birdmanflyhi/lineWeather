@@ -92,10 +92,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
   
-  /*let hourly:{dt:number,temp:number,feels_like:number,pressure:number,humidity:number,
+  var hourly:{dt:number,temp:number,feels_like:number,pressure:number,humidity:number,
   dew_point:number,uvi:number,clouds:number,visibility:number,wind_speed:number,
-  wind_deg:number,wind_gust:number,weather:[],pop:number};*/
- let hourly:string[];
+  wind_deg:number,wind_gust:number,weather:[],pop:number};
+ //let hourly:string[];
  
   var i:number = 0;
   async function weatherRequestStandard(){
@@ -104,10 +104,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
-    hourly = (data.hourly);
+    hourly = JSON.parse(data.hourly);
     
     for (let i in hourly){
-      console.log(i + ": "+ (data.hourly[i]))
+      console.log(i + ": "+ (hourly.dt))
      
     }
 
