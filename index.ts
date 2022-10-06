@@ -103,20 +103,20 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
-   .then((data) => {
+   .then((data) => console.log(data.hourly.dt)
      //console.log(JSON.stringify(data.hourly))
      //reply(typeof data.current)
     // hourly = 
   
    // console.log(data.dt);
-     hourly = ((data.hourly))
+    // hourly = ((data.hourly))
      //console.log(hourly);
      
-     hourly.forEach(getBest);
+    /* hourly.forEach(getBest);
 
       function getBest(){
         let obj = (hourly[i]);
-        console.log(obj[0]);
+        console.log(obj);
         //console.log('Hourly array: '+ i);
         //let unix_timestamp = hourly[0];
        // var obj=JSON.parse(hourly[i]);
@@ -133,10 +133,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         console.log(formattedTime);
         */
        
-      } 
+     // } 
      //reply(JSON.stringify(hourly));
      
-     }); 
+     ); 
      //reply(data.hourly);
    
 
