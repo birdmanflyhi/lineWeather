@@ -96,7 +96,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             console.log("Just the hour is: "+ hour);
     
           }
-
         }
      
 
