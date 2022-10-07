@@ -83,7 +83,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
         if (hour == '9 PM'){
           break;
-        }else if(hour.match(/^('3 PM'|'4 PM'|'5 PM'|'6 PM'|'7 PM'|'8 PM')$/)){
+        }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
             console.log("Just the hour is: "+ hour);
     
 
