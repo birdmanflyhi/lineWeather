@@ -110,7 +110,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      var time = ((data.hourly[i].dt))
       
-      var date = new Date(time*1000);
+      var date = new Date((time*1000)*-5);
+
+      
 
       const dateObject = new Date(date)
       
