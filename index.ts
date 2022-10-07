@@ -13,39 +13,6 @@ var longitude = `${process.env.Longitude}`;
 var latitude = `${process.env.Latitude}`;
 
 
-// Get city name passed in the form
-//let city = text returned
-
-// Use that city name to fetch data
-// Use the API_KEY in the '.env' file
-/*
-function sendWeatherRequestStandard(){
-
-  app.post('/', function(lat, long) {
-
-      let latitude =lat;
-      let longitude = long;
-
-      let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
-
-
-     request(url, function(err,response, body)){
-
-      if (err){
-        //text error
-        const response: TextMessage = {
-          type: 'text',
-          text:  'Error Matt',
-        };
-      }
-       
-     };
-
-};
-
-let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`;
-*/
-
 // Setup all LINE client and Express configurations.
 const clientConfig: ClientConfig = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || '',
@@ -78,7 +45,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { text } = event.message;
   const cheerio= require("cheerio");
 
-
   async function quoteRequestMotivate(){
     fetch('https://quotes.toscrape.com/random')
     .then((response) => response.text())
@@ -92,10 +58,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
   
- /*var hourly:{dt:number,temp:number,feels_like:number,pressure:number,humidity:number,
-  dew_point:number,uvi:number,clouds:number,visibility:number,wind_speed:number,
-  wind_deg:number,wind_gust:number,weather:[],pop:number};*/
- //let hourly:string[];
  
   var i:number = 0;
   async function weatherRequestStandard(){
@@ -112,66 +74,15 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       var date = new Date(time*1000);
 
-      
-
       const dateObject = new Date(date)
       
-      /*
-      dateObject.toLocaleString("en-US", {weekday: "long"}) // Monday
-      dateObject.toLocaleString("en-US", {month: "long"}) // December
-      dateObject.toLocaleString("en-US", {day: "numeric"}) // 9
-      dateObject.toLocaleString("en-US", {year: "numeric"}) // 2019
-      dateObject.toLocaleString("en-US", {hour: "numeric"}) // 10 AM
-      dateObject.toLocaleString("en-US", {minute: "numeric"}) // 30
-      dateObject.toLocaleString("en-US", {second: "numeric"}) // 15
-      */
-      //dateObject.toLocaleString("en-US", {timeZoneName: "short"}) // 12/9/2019, 10:30:15 AM CST
-     // var seconds = "0" + date.getSeconds();
-      //var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
 
       console.log(humanDateFormat);
 
-
     }
 
-   }
-     //console.log(JSON.stringify(data.hourly))
-     //reply(typeof data.current)
-    // hourly = 
-  
-   // console.log(data.dt);
-    // hourly = ((data.hourly))
-     //console.log(hourly);
-     
-    /* hourly.forEach(getBest);
-
-      function getBest(){
-        let obj = (hourly[i]);
-        console.log(obj);
-        //console.log('Hourly array: '+ i);
-        //let unix_timestamp = hourly[0];
-       // var obj=JSON.parse(hourly[i]);
-         // console.log(hourly[i]);
-          i++;
-      /*
-        var date = new Date(unix_timestamp *1000);
-        var hours = date.getHours();
-
-        var minutes = "0" + date.getMinutes();
-
-        var seconds = "0" + date.getSeconds();
-        var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
-        console.log(formattedTime);
-        */
-       
-     // } 
-     //reply(JSON.stringify(hourly));
-     
-     ); 
-     //reply(data.hourly);
-   
-
+   }); 
    
    };
 
