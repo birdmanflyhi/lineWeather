@@ -110,15 +110,16 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      var time = ((data.hourly[i].dt))
       
-      var date = new Date(time *1000);
+      var date = new Date(time);
       var hours = date.getHours();
       console.log("hours: "+hours);
 
       var minutes = "0" + date.getMinutes();
-
-      var seconds = "0" + date.getSeconds();
-      var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
-      console.log(formattedTime);
+      
+      var convdataTime = hours + ':' + minutes.slice(-2);
+     // var seconds = "0" + date.getSeconds();
+      //var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
+      console.log(convdataTime);
 
 
     }
