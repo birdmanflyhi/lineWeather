@@ -80,21 +80,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
       
-
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
-      const day = dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',day: "numeric"});
-      const today = new Date().getDay().toString();
-      console.log("Today is: "+today);
-      console.log("json day is: "+day)
-        if (day == today){
-          if(hour == '3 PM'|| hour == '4 PM'|| hour == '5 PM' || hour == '6 PM' || 
+        if (hour == '9 PM'){
+          break;
+        }else if(hour == '3 PM'|| hour == '4 PM'|| hour == '5 PM' || hour == '6 PM' || 
           hour == '7 PM' || hour == '8 PM'){
             console.log("Just the hour is: "+ hour);
     
           
     
     
-         }
+         
 
         }
 
