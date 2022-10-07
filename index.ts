@@ -110,16 +110,23 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      var time = ((data.hourly[i].dt))
       
-      var date = new Date(time);
-      var hours = date.getHours();
-      console.log("hours: "+hours);
-
-      var minutes = "0" + date.getMinutes();
+      var date = new Date(time*1000);
       
-      var convdataTime = hours + ':' + minutes.slice(-2);
+      const dateObject = new Date(date)
+      
+      const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+      
+      dateObject.toLocaleString("en-US", {weekday: "long"}) // Monday
+      dateObject.toLocaleString("en-US", {month: "long"}) // December
+      dateObject.toLocaleString("en-US", {day: "numeric"}) // 9
+      dateObject.toLocaleString("en-US", {year: "numeric"}) // 2019
+      dateObject.toLocaleString("en-US", {hour: "numeric"}) // 10 AM
+      dateObject.toLocaleString("en-US", {minute: "numeric"}) // 30
+      dateObject.toLocaleString("en-US", {second: "numeric"}) // 15
+      dateObject.toLocaleString("en-US", {timeZoneName: "short"}) // 12/9/2019, 10:30:15 AM CST
      // var seconds = "0" + date.getSeconds();
       //var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
-      console.log(convdataTime);
+      console.log(humanDateFormat);
 
 
     }
