@@ -116,7 +116,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
       const dateObject = new Date(date)
       
-      
+      /*
       dateObject.toLocaleString("en-US", {weekday: "long"}) // Monday
       dateObject.toLocaleString("en-US", {month: "long"}) // December
       dateObject.toLocaleString("en-US", {day: "numeric"}) // 9
@@ -124,6 +124,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       dateObject.toLocaleString("en-US", {hour: "numeric"}) // 10 AM
       dateObject.toLocaleString("en-US", {minute: "numeric"}) // 30
       dateObject.toLocaleString("en-US", {second: "numeric"}) // 15
+      */
       //dateObject.toLocaleString("en-US", {timeZoneName: "short"}) // 12/9/2019, 10:30:15 AM CST
      // var seconds = "0" + date.getSeconds();
       //var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
