@@ -70,23 +70,25 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     
     for (let i in hourly){
       console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
-     var time = ((data.hourly[i].dt))
+      var time = ((data.hourly[i].dt))
       
       var date = new Date(time*1000);
 
       const dateObject = new Date(date)
       
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
+      
 
-      console.log(humanDateFormat);
+      const hour =  dateObject.toLocaleString("en-US", {hour: "numeric"});
+      
+      console.log("Just the hour is: "+ hour);
+      //console.log(humanDateFormat);
 
     }
 
    }); 
    
    };
-
-  
 
 async function reply(sendThis:any){
   const response: TextMessage = {
