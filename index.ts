@@ -107,8 +107,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     var hourly = (data.hourly);
     
     for (let i in hourly){
-      //console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
-     var time = ((data.hourly[i].dt))
+      console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
+    /* var time = ((data.hourly[i].dt))
       
       var date = new Date(time *1000);
       var hours = date.getHours();
@@ -119,7 +119,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
       console.log(formattedTime);
 
-
+*/
     }
 
    }
