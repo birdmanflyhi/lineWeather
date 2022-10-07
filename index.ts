@@ -111,10 +111,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      var time = ((data.hourly[i].dt))
       
       var date = new Date(time*1000);
-      
+
       const dateObject = new Date(date)
       
-      const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
+      const humanDateFormat = dateObject.toLocaleString("en-US", {timeZoneName: "short"}) //2019-12-9 10:30:15
       
       dateObject.toLocaleString("en-US", {weekday: "long"}) // Monday
       dateObject.toLocaleString("en-US", {month: "long"}) // December
