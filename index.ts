@@ -70,6 +70,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     
     for (let i in hourly){
      // console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
+
+     if(JSON.stringify(data.hourly[i] < 11)){
       var time = ((data.hourly[i].dt))
       
       var date = new Date(time*1000);
@@ -86,6 +88,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         console.log("Just the hour is: "+ hour);
 
       }
+
+
+     }
+
+     
       //console.log(humanDateFormat);
 
     }
