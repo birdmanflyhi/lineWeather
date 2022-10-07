@@ -85,6 +85,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const day = dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',day: "numeric"});
       const today = new Date().getDay().toString();
       console.log("Today is: "+today);
+      console.log("json day is: "+day)
         if (day == today){
           if(hour == '3 PM'|| hour == '4 PM'|| hour == '5 PM' || hour == '6 PM' || 
           hour == '7 PM' || hour == '8 PM'){
