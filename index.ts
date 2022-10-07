@@ -84,7 +84,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
-            console.log("Just the hour is: "+ hour);
+            console.log("Weather: "+ JSON.stringify(data.hourly[i]));
     
 
         }
