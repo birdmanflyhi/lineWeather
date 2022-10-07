@@ -69,7 +69,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     var hourly = (data.hourly);
     
     for (let i in hourly){
-      console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
+      //console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      //console.log("every single one is: "+data.hourly[i]);
      
       var time = ((data.hourly[i].dt))
@@ -84,6 +84,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
       const day = dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',day: "numeric"});
       const today = new Date().getDay().toString();
+      console.log("Today is: "+today);
         if (day == today){
           if(hour == '3 PM'|| hour == '4 PM'|| hour == '5 PM' || hour == '6 PM' || 
           hour == '7 PM' || hour == '8 PM'){
