@@ -127,7 +127,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       //dateObject.toLocaleString("en-US", {timeZoneName: "short"}) // 12/9/2019, 10:30:15 AM CST
      // var seconds = "0" + date.getSeconds();
       //var formattedTime = hours + ":" + minutes.slice(-2) + ':' + seconds.slice(-2);
-      const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
+      const humanDateFormat = dateObject.toLocaleString('undefined', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
 
       console.log(humanDateFormat);
 
