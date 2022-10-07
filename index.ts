@@ -7,7 +7,6 @@ import bodyParser from "body-parser";
 import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
 import fetch from 'node-fetch';
-import { filterArray } from 'cheerio/lib/api/traversing';
 
 const apiKey = `${process.env.API_KEY}`;
 var longitude = `${process.env.Longitude}`;
@@ -68,14 +67,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    .then((response) => response.json())
    .then((data) => {
     var hourly = (data.hourly);
-
-
     
     for (let i in hourly){
       console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      //console.log("every single one is: "+data.hourly[i]);
-
-     //if(i <  ){
+     
       var time = ((data.hourly[i].dt))
       
       var date = new Date(time*1000);
@@ -84,32 +80,32 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
       
+
+      const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
       const day = dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',day: "numeric"});
       const today = new Date().getDay().toString();
         if (day == today){
-          const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
-      
-          //filter out next day results 
-          
           if(hour == '3 PM'|| hour == '4 PM'|| hour == '5 PM' || hour == '6 PM' || 
           hour == '7 PM' || hour == '8 PM'){
             console.log("Just the hour is: "+ hour);
     
-          }
+          
+    
+    
+         }
+
         }
+
      
-
-
-     }
 
      
       //console.log(humanDateFormat);
 
     }
 
-  //
+   }); 
    
-   )};
+   };
 
 async function reply(sendThis:any){
   const response: TextMessage = {
