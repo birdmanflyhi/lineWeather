@@ -79,7 +79,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
       
 
-      const hour =  dateObject.toLocaleString("en-US", {hour: "numeric"});
+      const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
       
       console.log("Just the hour is: "+ hour);
       //console.log(humanDateFormat);
