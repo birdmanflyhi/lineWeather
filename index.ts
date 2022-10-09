@@ -104,6 +104,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '500':
                 case '520':
                   console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
+                default:
+                  console.log('No weather id matched: '+ hour);
+
             
               }
 
