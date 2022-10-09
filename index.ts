@@ -87,13 +87,50 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             //console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['id']));
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
+  
+              switch (weatherID) {
+                case '800':
+                  console.log("This hour is good to run: "+ hour);
+                  break;
+                case '741':
+                  console.log("It is foggy out there: "+ hour);
+                  break;
+                case '801':
+                case '802':
+                case '803':  
+                case '804':
+                  console.log('Just some clouds, send it bro: '+ hour);
+                  break;
+                case '500':
+                case '520':
+                  console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
+            
+              }
+
+
+
+             /*
               if(weatherID.match(/^(800)$/)){
                 console.log("This hour is good to run: "+ hour);
+              }
+              if(weatherID.match(/^(741)$/)){
+                console.log("It is foggy out there: "+ hour);
+
               }
 
               if((weatherID.match(/^(801|802|803|804)$/))){
                 console.log('Just some clouds, send it bro: '+ hour);
               }
+
+              if((weatherID.match(/^(500|520)$/))){
+                console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
+              }else if((weatherID.match(/^(500|520)$/)){
+
+              }
+             */
+
+
+
               
               //check temps and wind and everything else second
 
