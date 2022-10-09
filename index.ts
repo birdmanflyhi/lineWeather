@@ -84,7 +84,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
-            console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]));
+            console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0][0]));
               //Check thunderstorms first
 
               //check temps and wind and everything else second
