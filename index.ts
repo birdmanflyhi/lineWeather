@@ -88,12 +88,81 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
   
-              switch (weatherID) {
-                case '800':
-                  console.log("This hour is good to run: "+ hour);
+              switch (weatherID) { 
+                case '210':
+                  console.log('Just a light thunderstorm, should be ok: '+ hour);
+                  break;
+                case '200':
+                case '201':
+                case '202':
+                case '211':
+                case '212':
+                case '221':
+                case '230':
+                case '231':
+                case '232':
+                  console.log('Thunderstorms medium or heavy, do not run: '+ hour);
+                  break;
+                case '300':
+                case '301':
+                case '310':
+                  console.log('Just some light drizzle, have a good run: '+ hour);
+                  break;
+                case '302':
+                case '311':
+                case '312':
+                case '313':
+                case '314':
+                case '321':
+                  console.log('It`s a heavy drizzle/shower, recommend no run: '+ hour);
+                  break;
+                case '500':
+                case '520':
+                  console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
+                  break;
+                case '501':
+                case '502':
+                case '503':
+                case '504':
+                case '511':
+                case '521':
+                case '522':
+                case '531':
+                  console.log('Not good because of rain/storm: '+ hour);
+                  break;
+                case '600':
+                  console.log('Should be ok, just light snow/rain: '+ hour);
+                  break;
+                case '601':
+                case '602':
+                case '611':
+                case '612':
+                case '613':
+                case '615':
+                case '616':
+                case '620':
+                case '620':
+                case '620':
+                  console.log('Do not run snow/sleet: '+ hour);
                   break;
                 case '741':
                   console.log("It is foggy out there: "+ hour);
+                  break;
+                case '701':
+                  console.log('Just mist(ligther than fog), run will be good: '+ hour);
+                  break;
+                case '711':
+                case '721':
+                case '731':
+                case '751':
+                case '761':
+                case '762':
+                case '771':
+                case '781':
+                  console.log('Do not run extreme atmosphere conditions such as tornado or smoke: '+ hour);
+                  break;
+                case '800':
+                  console.log("This hour is good to run: "+ hour);
                   break;
                 case '801':
                 case '802':
@@ -101,46 +170,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '804':
                   console.log('Just some clouds, send it bro: '+ hour);
                   break;
-                case '500':
-                case '520':
-                  console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
-                  break;
                 default:
                   console.log('No weather id matched: '+ hour);
 
-            
               }
 
-
-
-             /*
-              if(weatherID.match(/^(800)$/)){
-                console.log("This hour is good to run: "+ hour);
-              }
-              if(weatherID.match(/^(741)$/)){
-                console.log("It is foggy out there: "+ hour);
-
-              }
-
-              if((weatherID.match(/^(801|802|803|804)$/))){
-                console.log('Just some clouds, send it bro: '+ hour);
-              }
-
-              if((weatherID.match(/^(500|520)$/))){
-                console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
-              }else if((weatherID.match(/^(500|520)$/)){
-
-              }
-             */
-
-
-
-              
               //check temps and wind and everything else second
-
         }
-
- 
       //console.log(humanDateFormat);
 
     }
