@@ -92,7 +92,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             
 
             function weatherReply(comment:string){
-             response.push(comment + 
+             response.push(comment + `\n` +
               "| Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
               JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+ JSON.stringify(data.hourly[i].wind_speed)+ " |");
           
