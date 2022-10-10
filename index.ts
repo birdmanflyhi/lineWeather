@@ -90,7 +90,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             function weatherReply(){
 
               console.log("| Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
-              JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+ JSON.stringify(data.hourly[i].wind_speed)+ "|");
+              JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+ JSON.stringify(data.hourly[i].wind_speed)+ " |");
           
             }
               switch (weatherID) { 
