@@ -91,6 +91,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
               switch (weatherID) { 
                 case '210':
                   console.log('Just a light thunderstorm, should be ok: '+ hour);
+                  console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['temp']['humidity']['wind_speed']));
                   break;
                 case '200':
                 case '201':
@@ -169,9 +170,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '803':  
                 case '804':
                   console.log('Just some clouds, send it bro: '+ hour);
+                  console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['temp']['humidity']['wind_speed']));
+
                   break;
                 default:
                   console.log('No weather id matched: '+ hour);
+                  console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['temp']['humidity']['wind_speed']));
+
 
               }
 
