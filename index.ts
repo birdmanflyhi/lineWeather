@@ -87,11 +87,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             //console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['id']));
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
-  
+            function weatherReply(){
+              console.log("Weather: temp: "+ JSON.stringify(data.hourly[i].temp)+ " humidity: "+ 
+              JSON.stringify(data.hourly[i].humidity)+ "wind speed: "+ JSON.stringify(data.hourly[i].wind_speed));
+            }
               switch (weatherID) { 
                 case '210':
                   console.log('Just a light thunderstorm, should be ok: '+ hour);
-                  console.log("Weather: "+ JSON.stringify(data.hourly[i].temp.humidity));
+                  weatherReply();
                   break;
                 case '200':
                 case '201':
@@ -108,6 +111,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '301':
                 case '310':
                   console.log('Just some light drizzle, have a good run: '+ hour);
+                  weatherReply();
                   break;
                 case '302':
                 case '311':
@@ -120,6 +124,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '500':
                 case '520':
                   console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
+                  weatherReply();
                   break;
                 case '501':
                 case '502':
@@ -133,6 +138,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   break;
                 case '600':
                   console.log('Should be ok, just light snow/rain: '+ hour);
+                  weatherReply();
                   break;
                 case '601':
                 case '602':
@@ -148,9 +154,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   break;
                 case '741':
                   console.log("It is foggy out there: "+ hour);
+                  weatherReply();
                   break;
                 case '701':
                   console.log('Just mist(ligther than fog), run will be good: '+ hour);
+                  weatherReply();
                   break;
                 case '711':
                 case '721':
@@ -163,19 +171,19 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   console.log('Do not run extreme atmosphere conditions such as tornado or smoke: '+ hour);
                   break;
                 case '800':
-                  console.log("This hour is good to run: "+ hour);
+                  console.log("Clear sky, good to run: "+ hour);
+                  weatherReply();
                   break;
                 case '801':
                 case '802':
                 case '803':  
                 case '804':
                   console.log('Just some clouds, send it bro: '+ hour);
-                  console.log("Weather: "+ JSON.stringify(data.hourly[i].temp));
-
+                  weatherReply();
                   break;
                 default:
                   console.log('No weather id matched: '+ hour);
-                  console.log("Weather: "+ JSON.stringify(data.hourly[i].temp));
+                  weatherReply();
 
 
               }
