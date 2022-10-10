@@ -88,8 +88,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
             function weatherReply(){
-              console.log("Weather: temp: "+ JSON.stringify(data.hourly[i].temp)+ " humidity: "+ 
-              JSON.stringify(data.hourly[i].humidity)+ "wind speed: "+ JSON.stringify(data.hourly[i].wind_speed));
+
+              console.log("Temp:"+ JSON.stringify(data.hourly[i].temp)+ " humidity:"+ 
+              JSON.stringify(data.hourly[i].humidity)+ "wind speed:"+ JSON.stringify(data.hourly[i].wind_speed));
+          
             }
               switch (weatherID) { 
                 case '210':
