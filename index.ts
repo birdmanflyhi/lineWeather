@@ -68,6 +68,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    .then((data) => {
     var hourly = (data.hourly);
     
+    var response: string[] = [];
     for (let i in hourly){
       //console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
      //console.log("every single one is: "+data.hourly[i]);
@@ -79,7 +80,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const dateObject = new Date(date)
       
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
-      
+      var comment = '';
+
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
         if (hour == '9 PM'){
           break;
@@ -87,16 +89,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             //console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['id']));
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
-            function weatherReply(){
+            
 
+            function weatherReply(comment:string){
+             response.push(comment + 
               console.log("| Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
-              JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+ JSON.stringify(data.hourly[i].wind_speed)+ " |");
+              JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+ JSON.stringify(data.hourly[i].wind_speed)+ " |"));
           
             }
               switch (weatherID) { 
                 case '210':
-                  console.log('Just a light thunderstorm, should be ok: '+ hour);
-                  weatherReply();
+                  weatherReply('Just a light thunderstorm, should be ok: '+ hour);
                   break;
                 case '200':
                 case '201':
@@ -107,13 +110,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '230':
                 case '231':
                 case '232':
-                  console.log('Thunderstorms medium or heavy, do not run: '+ hour);
+                  weatherReply('Thunderstorms medium or heavy, do not run: '+ hour);
                   break;
                 case '300':
                 case '301':
                 case '310':
-                  console.log('Just some light drizzle, have a good run: '+ hour);
-                  weatherReply();
+                 // console.log('Just some light drizzle, have a good run: '+ hour);
+                  weatherReply('Just some light drizzle, have a good run: '+ hour);
                   break;
                 case '302':
                 case '311':
@@ -121,12 +124,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '313':
                 case '314':
                 case '321':
-                  console.log('It`s a heavy drizzle/shower, recommend no run: '+ hour);
+                  weatherReply('It`s a heavy drizzle/shower, recommend no run: '+ hour);
                   break;
                 case '500':
                 case '520':
-                  console.log('Just some light rain/shower, hopefully you gucci: '+ hour);
-                  weatherReply();
+                  weatherReply('Just some light rain/shower, hopefully you gucci: '+ hour);
                   break;
                 case '501':
                 case '502':
@@ -136,11 +138,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '521':
                 case '522':
                 case '531':
-                  console.log('Not good because of rain/storm: '+ hour);
+                  weatherReply('Not good because of rain/storm: '+ hour);
                   break;
                 case '600':
-                  console.log('Should be ok, just light snow/rain: '+ hour);
-                  weatherReply();
+                  weatherReply('Should be ok, just light snow/rain: '+ hour);
                   break;
                 case '601':
                 case '602':
@@ -152,15 +153,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '620':
                 case '620':
                 case '620':
-                  console.log('Do not run snow/sleet: '+ hour);
+                  weatherReply('Do not run snow/sleet: '+ hour);
                   break;
                 case '741':
-                  console.log("It is foggy out there: "+ hour);
-                  weatherReply();
+                  weatherReply("It is foggy out there: "+ hour);
                   break;
                 case '701':
-                  console.log('Just mist(ligther than fog), run will be good: '+ hour);
-                  weatherReply();
+                  weatherReply('Just mist(ligther than fog), run will be good: '+ hour);
                   break;
                 case '711':
                 case '721':
@@ -170,32 +169,30 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '762':
                 case '771':
                 case '781':
-                  console.log('Do not run extreme atmosphere conditions such as tornado or smoke: '+ hour);
+                  weatherReply('Do not run extreme atmosphere conditions such as tornado or smoke: '+ hour);
                   break;
                 case '800':
-                  console.log("Clear sky, good to run: "+ hour);
-                  weatherReply();
+                  weatherReply("Clear sky, good to run: "+ hour);
                   break;
                 case '801':
                 case '802':
                 case '803':  
                 case '804':
-                  console.log('Just some clouds, send it bro: '+ hour);
-                  weatherReply();
+                  weatherReply('Just some clouds, send it bro: '+ hour);
                   break;
                 default:
-                  console.log('No weather id matched: '+ hour);
-                  weatherReply();
+                  weatherReply('No weather id matched: '+ hour);
 
 
               }
+              
 
               //check temps and wind and everything else second
         }
       //console.log(humanDateFormat);
 
     }
-
+    reply(response);
    }); 
    
    };
