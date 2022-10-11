@@ -178,7 +178,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '802':
                 case '803':  
                 case '804':
-                  weatherReply(hour+ data.hourly[i].weather[0]['icon'] + ' Just some clouds, send it bro: ');
+                  weatherReply(hour + ' Just some clouds, send it bro: ');
+                  console.log(data.hourly[i].weather[0]['icon']);
                   break;
                 default:
                   weatherReply(hour + ' No weather id matched: ');
