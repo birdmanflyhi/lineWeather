@@ -74,12 +74,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      //console.log("every single one is: "+data.hourly[i]);
      
       var time = ((data.hourly[i].dt))
-      
       var date = new Date(time*1000);
-
       const dateObject = new Date(date)
       
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
+      
       var comment = '';
 
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
@@ -95,7 +94,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
              response.push(comment +  
               "| Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
               JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+
-              JSON.stringify(data.hourly[i].wind_speed)+ " |" + `\n`);
+              JSON.stringify(data.hourly[i].wind_speed)+ " |" + `\n`+ `\n`);
           
             }
               switch (weatherID) { 
