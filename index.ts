@@ -193,7 +193,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     }
     response.join(" ");
-    reply(response);
+    reply(response.toString());
    }); 
    
    };
