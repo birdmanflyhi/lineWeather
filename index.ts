@@ -190,10 +190,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     }
     
-    reply(response.join("\n"));
+    reply(response.join("\n")+quoteRequestMotivate().toString());
     //reply(quoteRequestMotivate());
    }); 
-   quoteRequestMotivate();
+   
    };
 
 async function reply(sendThis:any){
