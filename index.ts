@@ -58,7 +58,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
   
- 
   var i:number = 0;
   async function weatherRequestStandard(){
    //reply('Working on it-Matt');
@@ -67,7 +66,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
    .then((response) => response.json())
    .then((data) => {
     var hourly = (data.hourly);
-    
+
     var response: string[] = [];
     for (let i in hourly){
       //console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
@@ -187,14 +186,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
               }
               
-
-              //check temps and wind and everything else second
         }
-      //console.log(humanDateFormat);
 
     }
    
-    reply(response.join("\n"));
+    reply(response.join("\n")+ quoteRequestMotivate());
    }); 
    
    };
