@@ -189,8 +189,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         }
 
     }
-    var funQuote = quoteRequestMotivate().toString();
-    console.log(funQuote);
     reply(response.join("\n"));
     //reply(quoteRequestMotivate());
    }); 
