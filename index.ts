@@ -192,7 +192,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       //console.log(humanDateFormat);
 
     }
-    reply(response.toString());
+    response.join(" ");
+    reply(response);
    }); 
    
    };
