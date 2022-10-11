@@ -191,7 +191,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     }
    
     reply(response.join("\n"));
-    reply(quoteRequestMotivate());
+    //reply(quoteRequestMotivate());
    }); 
    
    };
