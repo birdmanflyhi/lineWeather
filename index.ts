@@ -99,7 +99,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
             }
               switch (weatherID) { 
                 case '210':
-                  weatherReply(hour + 'Just a light thunderstorm, should be ok: ');
+                  weatherReply(hour + ' Just a light thunderstorm, should be ok: ');
                   break;
                 case '200':
                 case '201':
@@ -110,13 +110,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '230':
                 case '231':
                 case '232':
-                  weatherReply(hour + 'Thunderstorms medium or heavy, do not run: ');
+                  weatherReply(hour + ' Thunderstorms medium or heavy, do not run: ');
                   break;
                 case '300':
                 case '301':
                 case '310':
                  // console.log('Just some light drizzle, have a good run: '+ hour);
-                  weatherReply(hour + 'Just some light drizzle, have a good run: ');
+                  weatherReply(hour + ' Just some light drizzle, have a good run: ');
                   break;
                 case '302':
                 case '311':
@@ -124,11 +124,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '313':
                 case '314':
                 case '321':
-                  weatherReply(hour + 'It`s a heavy drizzle/shower, recommend no run: ');
+                  weatherReply(hour + ' It`s a heavy drizzle/shower, recommend no run: ');
                   break;
                 case '500':
                 case '520':
-                  weatherReply(hour + 'Just some light rain/shower, hopefully you gucci: ');
+                  weatherReply(hour + ' Just some light rain/shower, hopefully you gucci: ');
                   break;
                 case '501':
                 case '502':
@@ -138,10 +138,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '521':
                 case '522':
                 case '531':
-                  weatherReply(hour + 'Not good because of rain/storm: ');
+                  weatherReply(hour + ' Not good because of rain/storm: ');
                   break;
                 case '600':
-                  weatherReply(hour +'Should be ok, just light snow/rain: ');
+                  weatherReply(hour +' Should be ok, just light snow/rain: ');
                   break;
                 case '601':
                 case '602':
@@ -153,13 +153,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '620':
                 case '620':
                 case '620':
-                  weatherReply(hour + 'Do not run snow/sleet: ');
+                  weatherReply(hour + ' Do not run snow/sleet: ');
                   break;
                 case '741':
-                  weatherReply(hour + "It is foggy out there: ");
+                  weatherReply(hour + " It is foggy out there: ");
                   break;
                 case '701':
-                  weatherReply(hour + 'Just mist(ligther than fog), run will be good: ');
+                  weatherReply(hour + ' Just mist(ligther than fog), run will be good: ');
                   break;
                 case '711':
                 case '721':
@@ -169,19 +169,19 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '762':
                 case '771':
                 case '781':
-                  weatherReply(hour + 'Do not run extreme atmosphere conditions such as tornado or smoke: ');
+                  weatherReply(hour + ' Do not run extreme atmosphere conditions such as tornado or smoke: ');
                   break;
                 case '800':
-                  weatherReply(hour + "Clear sky, good to run: ");
+                  weatherReply(hour + " Clear sky, good to run: ");
                   break;
                 case '801':
                 case '802':
                 case '803':  
                 case '804':
-                  weatherReply(hour+ 'Just some clouds, send it bro: ');
+                  weatherReply(hour+ ' Just some clouds, send it bro: ');
                   break;
                 default:
-                  weatherReply(hour + 'No weather id matched: ');
+                  weatherReply(hour + ' No weather id matched: ');
 
 
               }
