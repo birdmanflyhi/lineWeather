@@ -79,11 +79,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const humanDateFormat = dateObject.toLocaleString('en-US', {timeZone: 'America/New_York'}) //2019-12-9 10:30:15
       
       var comment = '';
-      //weather images
-      const clouds = document.createElement("img");
-      clouds.src = 'https://openweathermap.org/img/wn/04d@2x.png';
-      clouds.alt = 'clouds';
-
+      
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
         if (hour == '9 PM'){
           break;
@@ -181,7 +177,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '802':
                 case '803':  
                 case '804':
-                  weatherReply( hour + clouds + ' Just some clouds, send it bro: ');
+                  weatherReply( hour + ' Just some clouds, send it bro: ');
                   console.log(data.hourly[i].weather[0]['icon']);
                   break;
                 default:
