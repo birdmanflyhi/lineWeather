@@ -223,7 +223,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply('Hi this is an emoji:'+ '&#128512');
+      reply('Hi this is an emoji:'+ '&#129409');
       break;
     default:
       reply(text);
