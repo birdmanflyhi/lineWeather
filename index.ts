@@ -201,13 +201,7 @@ async function reply(sendThis:any){
   const response: TextMessage = {
     type: 'text',
     text:  sendThis,
-    emojis: [
-      {
-        index: 0,
-        productId: "5ac1bfd5040ab15980c9b435",
-        emojiId: "001"
-      }
-    ],
+    
   };
   await client.replyMessage(replyToken, response);
 };
@@ -230,7 +224,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply( 'working on this $');
+      reply( 'working on this $'+'&U+1F600');
       break;
     default:
       reply(text);
