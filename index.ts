@@ -207,6 +207,7 @@ async function reply(sendThis:any){
 };
  
   switch (text.trim().toLowerCase()) {
+    case 'tell me what the weather is':
     case 'get me the weather':
     case 'what is the weather':
     case 'what is the weather for today':
