@@ -201,18 +201,7 @@ async function reply(sendThis:any){
   const response: TextMessage = {
     type: 'text',
     text:  sendThis,
-    emojis: [
-      {
-        "index": 0,
-        "productId": "5ac1bfd5040ab15980c9b435",
-        "emojiId": "001"
-      },
-      {
-        "index": 13,
-        "productId": "5ac1bfd5040ab15980c9b435",
-        "emojiId": "002"
-      }
-    ]
+    emojis: emoji,
   };
   await client.replyMessage(replyToken, response);
 };
