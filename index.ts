@@ -192,7 +192,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     }
     reply(response.join("\n"));
-    //reply(quoteRequestMotivate());
+    
    }); 
    
    };
@@ -205,25 +205,18 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
- const emoji= [
-    {
-      index: 0,
-      productId: "5ac1bfd5040ab15980c9b435",
-      emojiId: "001"
-    }
-  ]
-  
-  switch (text.trim()) {
-    case 'Weather':
+ 
+  switch (text.trim().toLowerCase()) {
+    case 'weather':
       weatherRequestStandard();
       break;
-    case 'Matt':
+    case 'matt':
       reply('Matt is my creator. My everything. He is my rock.');
       break;
-    case 'Motivate':
+    case 'motivate':
       quoteRequestMotivate();
       break;
-    case 'Emoji':
+    case 'emoji':
       reply( 'Working on this '+'☁️');
       break;
     default:
