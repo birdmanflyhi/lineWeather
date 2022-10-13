@@ -211,9 +211,11 @@ async function reply(sendThis:any){
     case 'what is the weather':
     case 'what is the weather for today':
     case 'get me the weather please':
+    case 'please get me the weather':
     case 'weather':
       weatherRequestStandard();
       break;
+    case 'who is your creator':
     case 'matt':
     case 'who is matt':
       reply('Matt is my creator. My everything. He is my rock.');
