@@ -205,7 +205,7 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-  emojis:[
+ const emoji= [
     {
       index: 0,
       productId: "5ac1bfd5040ab15980c9b435",
@@ -224,7 +224,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply('Hi this is an emoji: $');
+      reply('Hi this is an emoji: $'+emoji[0]);
       break;
     default:
       reply(text);
