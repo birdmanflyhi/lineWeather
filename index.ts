@@ -224,7 +224,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply('Hi this is an emoji: $'+emoji[0].toString());
+      reply('Hi this is an emoji: $'+JSON.stringify(emoji[0]));
       break;
     default:
       reply(text);
