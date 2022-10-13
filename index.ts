@@ -43,13 +43,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   // Process all message related variables here.
   const { replyToken } = event;
   const { text, emojis } = event.message;
-  emojis:[
-    {
-      index:0,
-      productId: "5ac1bfd5040ab15980c9b435",
-      emojiId: "001"
-    }
-]
+  
 
   const cheerio= require("cheerio");
 
@@ -207,10 +201,17 @@ async function reply(sendThis:any){
   const response: TextMessage = {
     type: 'text',
     text: sendThis,
+  
   };
   await client.replyMessage(replyToken, response);
 };
-  
+  emojis:[
+    {
+      index: 0,
+      productId: "5ac1bfd5040ab15980c9b435",
+      emojiId: "001"
+    }
+  ]
   
   switch (text.trim()) {
     case 'Weather':
@@ -223,7 +224,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply('Hi this is an emoji: $'+emojis);
+      reply('Hi this is an emoji: $');
       break;
     default:
       reply(text);
