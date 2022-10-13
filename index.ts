@@ -117,7 +117,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '301':
                 case '310':
                  // console.log('Just some light drizzle, have a good run: '+ hour);
-                  weatherReply(hour + ' Just some light drizzle, have a good run: ');
+                  weatherReply(hour + ' 🌧️' + ' Just some light drizzle, have a good run: ');
                   break;
                 case '302':
                 case '311':
@@ -125,11 +125,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '313':
                 case '314':
                 case '321':
-                  weatherReply(hour + ' It`s a heavy drizzle/shower, recommend no run: ');
+                  weatherReply(hour + ' 🌧️' + ' It`s a heavy drizzle/shower, recommend no run: ');
                   break;
                 case '500':
                 case '520':
-                  weatherReply(hour + ' Just some light rain/shower, hopefully you gucci: ');
+                  weatherReply(hour + ' 🌧️' + ' Just some light rain/shower, hopefully you gucci: ');
                   break;
                 case '501':
                 case '502':
@@ -179,7 +179,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '802':
                 case '803':  
                 case '804':
-                  weatherReply( hour +' ☁️'+ ' Just some clouds, send it bro:');
+                  weatherReply( hour +' ☁️' + ' Just some clouds, send it bro:');
                   console.log(data.hourly[i].weather[0]['icon']);
                   break;
                 default:
