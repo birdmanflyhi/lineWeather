@@ -224,7 +224,7 @@ async function reply(sendThis:any){
       quoteRequestMotivate();
       break;
     case 'Emoji':
-      reply( 'working on this '+'⏰');
+      reply( 'Working on this '+'⏰');
       break;
     default:
       reply(text);
