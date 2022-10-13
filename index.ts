@@ -207,12 +207,19 @@ async function reply(sendThis:any){
 };
  
   switch (text.trim().toLowerCase()) {
+    case 'get me the weather':
+    case 'what is the weather':
+    case 'what is the weather for today':
+    case 'get me the weather please':
     case 'weather':
       weatherRequestStandard();
       break;
     case 'matt':
+    case 'who is matt':
       reply('Matt is my creator. My everything. He is my rock.');
       break;
+    case 'motivate me':
+    case 'can you motivate me':
     case 'motivate':
       quoteRequestMotivate();
       break;
