@@ -216,7 +216,7 @@ async function reply(sendThis:any){
 };
 
 var receiveZip:number;
-receiveZip = (Number(text.trim().toLowerCase()));
+receiveZip = (Number(text.trim()));
 if(receiveZip !== NaN){
   weatherRequestStandard(receiveZip);
 
