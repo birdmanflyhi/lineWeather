@@ -74,12 +74,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      long = longitude
 
    }else{
-   /*  fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},{+1}&appid=${apiKey}`)
+     fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},{+1}&appid=${apiKey}`)
      .then((response) => response.json())
      .then((data) => {
        console.log(data);
-       //reply('It got to here with the zip');
-     });*/
+       reply('It got to here with the zip');
+     });
 
     }
 
