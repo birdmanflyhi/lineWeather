@@ -220,7 +220,7 @@ async function reply(sendThis:any){
   text.trim();
   if(parseInt(text) !== NaN){
     weatherRequestStandard(parseInt(text));
-  }else{
+  }
 
        switch (text.toLowerCase()) {
          case 'tell me what the weather is':
@@ -230,7 +230,7 @@ async function reply(sendThis:any){
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           weatherRequestStandard(parseInt('33907'));
+           weatherRequestStandard(homeZip);
            break;
          case 'weather new location':
            reply('Please give me the zip code');
@@ -252,7 +252,7 @@ async function reply(sendThis:any){
            reply(text);
 
         }
-      }
+      
     };
 
 // Register the LINE middleware.
