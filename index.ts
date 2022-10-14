@@ -63,7 +63,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var long:number;
   var homeZip:number = 33907;
   
-  
   var i:number = 0;
   async function weatherRequestStandard(zipcode:any){
    //reply('Working on it-Matt');
@@ -72,7 +71,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     long = longitude;
 
   }else{
-    console.log(zipcode);
+    reply('You made it to the geocoding section: '+zipcode);
   }
 
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
@@ -216,13 +215,13 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-  text.trim();
-  if((parseInt(text)  !== NaN)){
-   // weatherRequestStandard(parseInt(text));
-   console.log('Number is: '+ parseInt(text));
-  }
+var replyText = text.trim().toLowerCase();
 
-       switch (text.trim().toLowerCase()) {
+if(Number(replyText) !== NaN){
+  weatherRequestStandard(homeZip);
+}
+  
+       switch (replyText) {
          case 'tell me what the weather is':
          case 'get me the weather':
          case 'what is the weather':
@@ -230,7 +229,7 @@ async function reply(sendThis:any){
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           //weatherRequestStandard(homeZip);
+           weatherRequestStandard(homeZip);
            console.log('Yes weather requested');
            break;
          case 'weather new location':
