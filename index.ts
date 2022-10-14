@@ -215,13 +215,12 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-var replyText = text.trim().toLowerCase();
 
-if(Number(replyText) !== NaN){
-  weatherRequestStandard(homeZip);
+if(Number(text.trim()) !== NaN){
+  weatherRequestStandard(Number(text.trim()));
 }
   
-       switch (replyText) {
+       switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
          case 'get me the weather':
          case 'what is the weather':
