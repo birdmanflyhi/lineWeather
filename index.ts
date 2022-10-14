@@ -219,7 +219,7 @@ async function reply(sendThis:any){
   text.trim();
   if(parseInt(text) !== NaN){
    // weatherRequestStandard(parseInt(text));
-   console.log("Yea its a number");
+   console.log('Number is: '+ parseInt(text));
   }
 
        switch (text.trim().toLowerCase()) {
