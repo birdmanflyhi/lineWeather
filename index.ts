@@ -202,8 +202,8 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-
-var testing = Number(text.trim());
+text.trim();
+var testing = Number(text);
 
 if((testing) !== NaN )
 {
