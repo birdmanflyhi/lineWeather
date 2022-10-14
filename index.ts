@@ -67,7 +67,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var i:number = 0;
   async function weatherRequestStandard(zipcode:any){
    //reply('Working on it-Matt');
-   console.log(zipcode);
   if(zipcode == 33907){
     lat = latitude;
     long = longitude;
@@ -219,7 +218,8 @@ async function reply(sendThis:any){
 };
   text.trim();
   if(parseInt(text) !== NaN){
-    weatherRequestStandard(parseInt(text));
+   // weatherRequestStandard(parseInt(text));
+   console.log("Yea its a number");
   }
 
        switch (text.trim().toLowerCase()) {
@@ -230,7 +230,8 @@ async function reply(sendThis:any){
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           weatherRequestStandard(homeZip);
+           //weatherRequestStandard(homeZip);
+           console.log('Yes weather requested');
            break;
          case 'weather new location':
            reply('Please give me the zip code');
