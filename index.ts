@@ -203,6 +203,12 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
 
+var testing = Number(text.trim());
+
+if((testing) !== NaN )
+{
+  console.log(typeof(testing));
+}
   
        switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
