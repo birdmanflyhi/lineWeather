@@ -72,7 +72,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     long = longitude;
 
   }else{
-    reply(zipcode);
+    console.log(zipcode);
   }
 
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
