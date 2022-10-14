@@ -61,6 +61,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var longitude:number = -81.8723084;
   var lat:number;
   var long:number;
+  var homeZip:number = 33907;
   
   
   var i:number = 0;
@@ -230,7 +231,7 @@ async function reply(sendThis:any){
          case 'please get me the weather':
          case 'weather':
            
-           weatherRequestStandard(33907);
+           weatherRequestStandard(homeZip);
            break;
          case 'weather new location':
            reply('Please give me the zip code');
