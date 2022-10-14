@@ -222,7 +222,7 @@ async function reply(sendThis:any){
     weatherRequestStandard(parseInt(text));
   }
 
-       switch (text.toLowerCase()) {
+       switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
          case 'get me the weather':
          case 'what is the weather':
