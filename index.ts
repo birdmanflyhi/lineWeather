@@ -67,7 +67,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var i:number = 0;
   async function weatherRequestStandard(zipcode:number){
    //reply('Working on it-Matt');
-   
+   console.log(zipcode);
   if(zipcode == 33907){
     lat = latitude;
     long = longitude;
