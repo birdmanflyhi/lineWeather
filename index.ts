@@ -190,7 +190,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '803':  
                 case '804':
                   weatherReply( hour +' ☁️' + ' Just some clouds, send it bro:');
-                  console.log(data.hourly[i].weather[0]['icon']);
                   break;
                 default:
                   weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
@@ -216,7 +215,12 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
 
+var receiveZip:number;
+receiveZip = (Number(text.trim().toLowerCase()));
+if(receiveZip !== NaN){
+  weatherRequestStandard(receiveZip);
 
+}
   
        switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
