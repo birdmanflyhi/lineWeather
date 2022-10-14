@@ -77,7 +77,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
      .then((response) => response.json())
      .then((data) => {
        console.log(data);
-       reply('It got to here with the zip');
+       //reply('It got to here with the zip');
      }
 
     )}
