@@ -59,12 +59,23 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
+  var lat:number;
+  var long:number;
+  
   
   var i:number = 0;
-  async function weatherRequestStandard(){
+  async function weatherRequestStandard(zipcode:number){
    //reply('Working on it-Matt');
    
-   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
+  if(zipcode == 33907){
+    lat = latitude;
+    long = longitude;
+
+  }else{
+    reply('made it to here');
+  }
+
+   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
     var hourly = (data.hourly);
@@ -193,9 +204,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     }
     reply(response.join("\n"));
     
-   }); 
+    }); 
    
-   };
+};
 
 async function reply(sendThis:any){
   const response: TextMessage = {
@@ -205,39 +216,43 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
- 
-  switch (text.trim().toLowerCase()) {
-    case 'tell  me what the weather is':
-    case 'get me the weather':
-    case 'what is the weather':
-    case 'what is the weather for today':
-    case 'get me the weather please':
-    case 'please get me the weather':
-    case 'weather':
-      weatherRequestStandard();
-      break;
-    case 'weather new location':
-      weatherRequestStandard();
-      break;
-    case 'who is your creator':
-    case 'matt':
-    case 'who is matt':
-      reply('Matt is my creator. My everything. He is my rock.');
-      break;
-    case 'motivate me':
-    case 'can you motivate me':
-    case 'motivate':
-      quoteRequestMotivate();
-      break;
-    case 'emoji':
-      reply( 'Working on this '+'☁️');
-      break;
-    default:
-      reply(text);
+  text.trim();
+  if(parseInt(text) !== NaN){
+    weatherRequestStandard(parseInt(text));
+  }else{
 
-  }
-  
-};
+       switch (text.toLowerCase()) {
+         case 'tell me what the weather is':
+         case 'get me the weather':
+         case 'what is the weather':
+         case 'what is the weather for today':
+         case 'get me the weather please':
+         case 'please get me the weather':
+         case 'weather':
+           weatherRequestStandard(33907);
+           break;
+         case 'weather new location':
+           reply('Please give me the zip code');
+           break;
+         case 'who is your creator':
+         case 'matt':
+         case 'who is matt':
+          reply('Matt is my creator. My everything. He is my rock.');
+           break;
+         case 'motivate me':
+         case 'can you motivate me':
+         case 'motivate':
+           quoteRequestMotivate();
+           break;
+         case 'emoji':
+           reply( 'Working on this '+'☁️');
+           break;
+         default:
+           reply(text);
+
+        }
+      }
+    };
 
 // Register the LINE middleware.
 // As an alternative, you could also pass the middleware in the route handler, which is what is used here.
