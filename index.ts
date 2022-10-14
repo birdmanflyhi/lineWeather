@@ -217,7 +217,7 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
   text.trim();
-  if((parseInt(text)) !== NaN){
+  if((parseInt(text)  !== NaN)){
    // weatherRequestStandard(parseInt(text));
    console.log('Number is: '+ parseInt(text));
   }
