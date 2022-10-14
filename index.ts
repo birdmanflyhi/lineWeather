@@ -66,14 +66,15 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var i:number = 0;
   async function weatherRequestStandard(zipcode:any){
    //reply('Working on it-Matt');
-  if(zipcode == 33907){
+   console.log(zipcode);
+  /*if(zipcode == 33907){
     lat = latitude;
     long = longitude;
 
   }else{
     reply('You made it to the geocoding section: '+zipcode);
-  }
-
+  }*/
+  
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
