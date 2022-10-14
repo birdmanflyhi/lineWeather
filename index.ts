@@ -7,7 +7,6 @@ import bodyParser from "body-parser";
 import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
 import fetch from 'node-fetch';
-import { data } from 'cheerio/lib/api/attributes';
 
 const apiKey = `${process.env.API_KEY}`;
 var longitude = `${process.env.Longitude}`;
@@ -58,32 +57,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   };
 
-  //preset for Ryan home zip
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
-  var lat:number;
-  var long:number;
- 
-
-  var i:number = 0;
-  async function weatherRequestStandard(zipcode:number){
-   //reply('Working on it-Matt');
   
-   if(zipcode == 33907){
-     lat = latitude
-     long = longitude
-
-   }else{
-     fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},{+1}&appid=${apiKey}`)
-     .then((response) => response.json())
-     .then((data) => {
-       console.log(data);
-       reply('It got to here with the zip');
-     });
-
-    }
-
-   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
+  var i:number = 0;
+  async function weatherRequestStandard(){
+   //reply('Working on it-Matt');
+   
+   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
     var hourly = (data.hourly);
@@ -202,7 +183,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   console.log(data.hourly[i].weather[0]['icon']);
                   break;
                 default:
-                  weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched. ');
+                  weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
 
 
               }
@@ -214,7 +195,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     
    }); 
    
-   
    };
 
 async function reply(sendThis:any){
@@ -225,50 +205,35 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-  text.trim();
-  if(parseInt(text) !== NaN){
-    weatherRequestStandard(parseInt(text));
-  }else{
-
-    switch (text.toLowerCase()) {
-      case 'tell me what the weather is':
-      case 'get me the weather':
-      case 'what is the weather':
-      case 'what is the weather for today':
-      case 'get me the weather please':
-      case 'please get me the weather':
-      case 'weather':
-        weatherRequestStandard(33907);
-        break;
-      case 'weather new location':
-      case 'i am away from home':
-      case 'i need the weather for a different location':
-      case 'new location':
-      case 'different location':
-      case 'different zipe code':
-        //ask reply for zip code
-        reply('Please give me a US zip code and I will pull the weather data for you');
-        break;
-      case 'who is your creator':
-      case 'who is your creator?':
-      case 'who made you?':
-      case 'matt':
-      case 'who is matt':
-      case 'who is matt?':
-        reply('Matt is my creator. My everything. He is my rock.');
-        break;
-      case 'motivate me':
-      case 'can you motivate me':
-      case 'motivate':
-        quoteRequestMotivate();
-        break;
-      case 'emoji':
-        reply( 'Working on this '+'☁️');
-        break;
-      default:
-        reply(text);
-  
-    }
+ 
+  switch (text.trim().toLowerCase()) {
+    case 'tell  me what the weather is':
+    case 'get me the weather':
+    case 'what is the weather':
+    case 'what is the weather for today':
+    case 'get me the weather please':
+    case 'please get me the weather':
+    case 'weather':
+      weatherRequestStandard();
+      break;
+    case 'weather new location':
+      weatherRequestStandard();
+      break;
+    case 'who is your creator':
+    case 'matt':
+    case 'who is matt':
+      reply('Matt is my creator. My everything. He is my rock.');
+      break;
+    case 'motivate me':
+    case 'can you motivate me':
+    case 'motivate':
+      quoteRequestMotivate();
+      break;
+    case 'emoji':
+      reply( 'Working on this '+'☁️');
+      break;
+    default:
+      reply(text);
 
   }
   
