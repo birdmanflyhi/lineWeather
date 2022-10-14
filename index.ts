@@ -216,9 +216,7 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
 
-if(Number(text.trim()) !== NaN){
-  weatherRequestStandard(Number(text.trim()));
-}
+
   
        switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
