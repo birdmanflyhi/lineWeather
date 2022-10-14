@@ -72,7 +72,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     long = longitude;
 
   }else{
-    reply('made it to here');
+    reply(zipcode);
   }
 
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
@@ -230,7 +230,7 @@ async function reply(sendThis:any){
          case 'please get me the weather':
          case 'weather':
            
-           weatherRequestStandard(parseInt('33907'));
+           weatherRequestStandard(33907);
            break;
          case 'weather new location':
            reply('Please give me the zip code');
