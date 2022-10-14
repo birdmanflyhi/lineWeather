@@ -230,7 +230,7 @@ async function reply(sendThis:any){
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           weatherRequestStandard(33907);
+           weatherRequestStandard(parseInt('33907'));
            break;
          case 'weather new location':
            reply('Please give me the zip code');
