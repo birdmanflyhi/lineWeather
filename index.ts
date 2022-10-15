@@ -227,7 +227,7 @@ if(isNumber(text) == true )
   console.log("it is a number: " +text);
   var zip:number = parseInt(text);
   weatherRequestStandard(zip);
-}
+}else{
   
        switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
@@ -261,7 +261,7 @@ if(isNumber(text) == true )
         }
       
     };
-
+  };
 // Register the LINE middleware.
 // As an alternative, you could also pass the middleware in the route handler, which is what is used here.
 // app.use(middleware(middlewareConfig));
