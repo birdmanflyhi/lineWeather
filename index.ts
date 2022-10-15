@@ -205,7 +205,7 @@ async function reply(sendThis:any){
 text.trim();
 var testing = Number(text);
 
-if((testing) !== NaN )
+if(testing !== NaN )
 {
   console.log(typeof(testing));
 }
