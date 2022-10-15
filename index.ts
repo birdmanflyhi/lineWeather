@@ -59,10 +59,24 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
+  var lat:number;
+  var long:number;
+  var zip:number;
   
-  async function weatherRequestStandard(){
+  async function weatherRequestStandard(zip:number){
+
+    if(zip == 33907){
+      lat = latitude;
+      long = longitude;
+    }
+    else{
+      console.log("Inside special zip: Here is NY for now")
+      //NY
+      lat = 40.7128;
+      long = 74.0060;
+    }
   
-   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
+   fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
     var hourly = (data.hourly);
@@ -211,6 +225,8 @@ isNumber(text.trim())
 if(isNumber(text) == true )
 {
   console.log("it is a number: " +text);
+  var zip:number = parseInt(text);
+  weatherRequestStandard(zip);
 }
   
        switch (text.trim().toLowerCase()) {
@@ -221,7 +237,7 @@ if(isNumber(text) == true )
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           weatherRequestStandard();
+           weatherRequestStandard(33907);
            break;
          case 'weather new location':
            reply('Please give me the zip code');
