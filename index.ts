@@ -68,14 +68,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     if(zip == 33907){
       lat = latitude;
       long = longitude;
-      return;
     }
     else{
       console.log("Inside special zip: Here is NY for now")
       //NY
-     // lat = 40.7128;
-     // long = -74.0060;
-     return;
+     lat = 40.7128;
+     long = -74.0060;
     }
   
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
