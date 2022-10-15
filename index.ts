@@ -207,7 +207,7 @@ text.trim();
 
 function isNumber(n: string) {return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
 
-isNumber(text)
+isNumber(text.trim())
 if(isNumber(text) == true )
 {
   console.log("it is a number: " +text);
