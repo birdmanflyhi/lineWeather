@@ -202,7 +202,7 @@ async function reply(sendThis:any){
   };
   await client.replyMessage(replyToken, response);
 };
-text.trim();
+
 //var numberText:number = parseInt(text);
 
 function isNumber(n: string) {return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
