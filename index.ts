@@ -203,11 +203,14 @@ async function reply(sendThis:any){
   await client.replyMessage(replyToken, response);
 };
 text.trim();
-var numberText = parseInt(text);
+//var numberText:number = parseInt(text);
 
-if(numberText !== NaN )
+function isNumber(n: string) {return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
+
+isNumber(text)
+if(isNumber(text) == true )
 {
-  console.log(typeof(numberText+ ": "+ numberText));
+  console.log("it is a number: " +text);
 }
   
        switch (text.trim().toLowerCase()) {
