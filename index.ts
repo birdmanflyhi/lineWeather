@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import { DotenvConfigOptions } from 'dotenv';
 import { request } from 'http';
 import fetch from 'node-fetch';
+import { NUMBER } from 'sequelize/types';
 
 const apiKey = `${process.env.API_KEY}`;
 var longitude = `${process.env.Longitude}`;
@@ -218,15 +219,13 @@ async function reply(sendThis:any){
 };
 
 //var numberText:number = parseInt(text);
-
-function isNumber(n: string) {return /^-?[\d.]+(?:e-?\d+)?$/.test(n); }
-
-isNumber(text.trim())
-if(isNumber(text) == true )
+text.trim();
+if(Number(text) !== NaN && text.length == 5)
 {
   console.log("it is a number: " +text);
   var zip:number = parseInt(text);
   weatherRequestStandard(zip);
+  
 }else{
   
        switch (text.trim().toLowerCase()) {
