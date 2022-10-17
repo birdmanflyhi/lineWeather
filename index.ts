@@ -62,6 +62,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var lat:number;
   var long:number;
   var zip:number;
+  var geocode:any;
   
   async function weatherRequestStandard(zip:number){
 
@@ -72,9 +73,15 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     else{
       console.log("Inside special zip: Here is NY for now")
       //NY
-     lat = 40.7128;
-     long = -74.0060;
-    }
+      fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`)
+      .then((response) => response.json())
+      .then((data) => {
+      
+
+     lat = geocode.lat,
+     long = geocode.long;
+    },) }
+  
   
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
