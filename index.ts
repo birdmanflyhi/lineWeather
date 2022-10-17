@@ -62,7 +62,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var lat:number;
   var long:number;
   var zip:number;
-  var geocode:any;
   
   async function weatherRequestStandard(zip:number){
 
@@ -78,8 +77,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       .then((data) => {
       
 
-     lat = geocode.lat,
-     long = geocode.long;
+     lat = (data.lat),
+     long = (data.long);
     },) }
   
   
