@@ -242,8 +242,8 @@ if(Number(text) !== NaN && text.length == 5)
            break;
          case 'who is your creator':
          case 'who is your creator?':
-         case 'who is created you?':
-         case 'who is created you':
+         case 'who created you?':
+         case 'who created you':
          case 'matt':
          case 'who is matt':
           reply('Matt is my creator. My everything. He is my rock.');
