@@ -241,6 +241,9 @@ if(Number(text) !== NaN && text.length == 5)
            reply('Please give me the zip code');
            break;
          case 'who is your creator':
+         case 'who is your creator?':
+         case 'who is created you?':
+         case 'who is created you':
          case 'matt':
          case 'who is matt':
           reply('Matt is my creator. My everything. He is my rock.');
