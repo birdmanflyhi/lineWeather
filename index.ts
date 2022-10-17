@@ -76,10 +76,11 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       .then((response) => response.json())
       .then((data) => {
       
-
-     lat = (data.lat),
-     long = (data.long);
-    },) }
+      lat = (data.lat),
+      long = (data.long);
+      
+     },) 
+     }
   
   
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
