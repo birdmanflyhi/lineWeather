@@ -75,9 +75,9 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       .then((response) => response.json())
       .then((data) => {
       
-      lat = (data.lat),
+      lat = (data.lat);
       long = (data.long);
-      
+      console.log("got to here just fine past the data");
      });
      }
   
