@@ -63,7 +63,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var long:number;
   var zip:number;
   
-   function weatherRequestStandard(zip:number){
+  async function weatherRequestStandard(zip:number){
 
     if(zip == 33907){
       lat = latitude;
