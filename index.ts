@@ -75,11 +75,12 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       .then((response) => response.json())
       .then((data) => {
       
-      lat = (data.lat);
-      long = (data.lon);
+     var lat = (data.lat);
+     var long = (data.lon);
       console.log("lat inside: "+lat + " Long inside: " + long)
 
      });
+    
      }
   
   console.log("lat is: "+lat + " Long is: " + long)
