@@ -70,16 +70,16 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       long = longitude;
     } else{
      
-     
       fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
       
-     var lat = (data.lat);
-     var long = (data.lon);
+      lat = data.lat;
+      long = data.lon;
       console.log("lat inside: "+lat + " Long inside: " + long)
-
-     });
+      console.log (typeof(data.lat));
+      
+     })
     
      }
   
