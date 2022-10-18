@@ -69,20 +69,19 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       lat = latitude;
       long = longitude;
     } else{
-      console.log("Inside special zip: Here is the zip code: " + zip);
-      //NY
+     
+     
       fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
       
       lat = (data.lat),
       long = (data.lon);
-      console.log("got to here just fine past the data. Here is lat: "+ lat +" AND here is long: "+ 
-      long);
+     
      });
      }
   
-  
+  console.log("lat is: "+lat + " Long is: " + long)
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
