@@ -226,7 +226,7 @@ async function reply(sendThis:any){
 
 //var numberText:number = parseInt(text);
 text.trim();
-if(Number(text) !== NaN && text.length == 5)
+if((Number(text) !== NaN && text.length == 5))
 {
   console.log("it is a number: " +text);
   var zip:number = parseInt(text);
