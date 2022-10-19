@@ -271,7 +271,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
          case 'emoji':
            reply( 'Working on this '+'☁️');
            break;
-         case `+'`:
+         case `'`:
            reply('trying simpler');
          default:
            reply(text);
