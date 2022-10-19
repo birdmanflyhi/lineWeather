@@ -272,7 +272,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            reply( 'Working on this '+'☁️');
            break;
          default:
-           reply(text.toLowerCase());
+           reply(text.trim().toLowerCase());
         }
       
     };
