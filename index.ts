@@ -273,7 +273,6 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          default:
            reply(text);
-           console.log(text);
 
         }
       
