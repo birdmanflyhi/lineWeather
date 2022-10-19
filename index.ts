@@ -68,6 +68,8 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     if(zip == 33907){
       lat = latitude;
       long = longitude;
+
+      weatherRequestExtended(lat, long);
     } else{
      
       fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`)
@@ -78,12 +80,16 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       long = data.lon;
       console.log("lat inside: "+lat + " Long inside: " + long)
       console.log (typeof(data.lat));
-      
+      weatherRequestExtended(lat, long);
      })
       
-     }
-  
-  console.log("lat is: "+lat + " Long is: " + long)
+     };
+
+
+    
+  async function weatherRequestExtended(lat:number, long:number){
+   
+   console.log("Extended lat is: "+lat + " Long is: " + long)
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
