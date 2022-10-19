@@ -248,7 +248,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          case 'weather new location':
          case 'new zip code':
-         case `i\'m not at home`:
+         case 'i\'m not at home':
          case `i\'m not at that location`:
          case 'that is not my address':
          case 'different location':
