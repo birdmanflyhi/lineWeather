@@ -78,8 +78,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       lat = data.lat;
       long = data.lon;
-      console.log("lat inside: "+lat + " Long inside: " + long)
-      console.log (typeof(data.lat));
       weatherRequestExtended(lat, long);
      })
       
@@ -89,7 +87,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     
   async function weatherRequestExtended(lat:number, long:number){
    
-   console.log("Extended lat is: "+lat + " Long is: " + long)
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
    .then((data) => {
@@ -98,7 +95,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
     var response: string[] = [];
     for (let i in hourly){
       //console.log(i + ": "+ (JSON.stringify(data.hourly[i].dt)))
-     //console.log("every single one is: "+data.hourly[i]);
      
       var time = ((data.hourly[i].dt))
       var date = new Date(time*1000);
@@ -112,11 +108,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
-            //console.log("Weather: "+ JSON.stringify(data.hourly[i].weather[0]['id']));
+           
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
             
-
             function weatherReply(comment:string){
              response.push(comment +  
               " Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
@@ -142,7 +137,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '300':
                 case '301':
                 case '310':
-                 // console.log('Just some light drizzle, have a good run: '+ hour);
                   weatherReply(hour + ' 🌧️' + ' Just some light drizzle, have a good run: ');
                   break;
                 case '302':
@@ -279,6 +273,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          default:
            reply(text);
+           console.log(text);
 
         }
       
