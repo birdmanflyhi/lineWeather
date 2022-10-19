@@ -261,6 +261,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
          case 'who created you':
          case 'matt':
          case 'who is matt':
+         case `'`:
           reply('Matt is my creator. My everything. He is my rock.');
            break;
          case 'motivate me':
@@ -273,7 +274,6 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          default:
            reply(text);
-
         }
       
     };
