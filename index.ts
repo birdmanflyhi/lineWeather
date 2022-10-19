@@ -248,9 +248,9 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          case 'weather new location':
          case 'new zip code':
-         case 'i\'m not at home':
-         case 'i\'m not at that location':
-         case 'that\'s  not my address':
+         case "i\'m not at home":
+         case "i\'m not at that location":
+         case "that\'s  not my address":
          case 'different location':
          case 'new location':
            reply('Please give me the zip code');
@@ -271,7 +271,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
          case 'emoji':
            reply( 'Working on this '+'☁️');
            break;
-         case '\'':
+         case "\'":
            reply('trying simpler');
          default:
            reply(text);
