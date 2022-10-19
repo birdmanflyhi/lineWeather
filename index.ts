@@ -85,7 +85,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
      };
 
-
+  };
     
   async function weatherRequestExtended(lat:number, long:number){
    
