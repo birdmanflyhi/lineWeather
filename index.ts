@@ -236,7 +236,7 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
   console.log("it is a number: " +checkText);
   var zip:number = parseInt(checkText);
   weatherRequestStandard(zip);
-  that'
+  
 }else{
   
       console.log(checkText);
