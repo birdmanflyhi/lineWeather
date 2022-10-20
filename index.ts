@@ -205,7 +205,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 default:
                   weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
 
-
               }
               
         }
