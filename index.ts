@@ -1,6 +1,7 @@
 // Import all dependencies, mostly using destructuring for better view.
 import { ClientConfig, Client, middleware, MiddlewareConfig, WebhookEvent, TextMessage, MessageAPIResponseBase } from '@line/bot-sdk';
 import express, { Application, Request, response, Response } from 'express';
+import { motivateQuotes } from './quotes';
 
 //Weather dependencies app
 import bodyParser from "body-parser";
@@ -237,7 +238,7 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
   weatherRequestStandard(zip);
   
 }else{
-  
+
        switch (checkText) {
          case 'tell me what the weather is':
          case 'get me the weather':
@@ -268,7 +269,10 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'motivate me':
          case 'can you motivate me':
          case 'motivate':
-           quoteRequestMotivate();
+           //quoteRequestMotivate();
+           var randomIndex = Math.floor(Math.random() * motivateQuotes.length);
+           var quote = motivateQuotes[randomIndex];
+           reply(quote);
            break;
          case 'emoji':
            reply( 'Working on this '+'☁️');
