@@ -229,7 +229,7 @@ async function reply(sendThis:any){
 text.trim().toLowerCase();
 
 
-var checkText = text.replace(/’/g, "").toLowerCase().trim();
+var checkText = text.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().trim();
 
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
@@ -275,7 +275,7 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'emoji':
            reply( 'Working on this '+'☁️');
            break;
-         case '\'':
+         case '':
            reply('trying simpler');
          default:
            reply(text);
