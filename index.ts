@@ -229,7 +229,7 @@ async function reply(sendThis:any){
 text.trim().toLowerCase();
 
 
-var checkText = text.replace(/[^a-zA-Z0-9]/g, '').toLowerCase().trim();
+var checkText = text.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase().trim();
 
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
