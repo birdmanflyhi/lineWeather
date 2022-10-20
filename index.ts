@@ -235,8 +235,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
   weatherRequestStandard(zip);
   
 }else{
-  const apostrophe = "'";
-
+  
       console.log(text.trim().toLowerCase());
        switch (text.trim().toLowerCase()) {
          case 'tell me what the weather is':
@@ -250,8 +249,8 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          case 'weather new location':
          case 'new zip code':
-         case `im not at home`:
-         case "i'm not at that location":
+         case 'i\'m not at home':
+         case 'i\'m not at that location':
          case 'that\'s not my address':
          case 'different location':
          case 'new location':
