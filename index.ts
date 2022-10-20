@@ -212,6 +212,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
     }
     reply(response.join("\n"));
+    var randomIndex = Math.floor(Math.random() * motivateQuotes.length);
+    var quote = motivateQuotes[randomIndex];
+    reply(quote);
+   
     
     }); 
    
