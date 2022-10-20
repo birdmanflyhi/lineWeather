@@ -233,13 +233,11 @@ var checkText = text.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase().trim();
 
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
-  console.log("it is a number: " +checkText);
   var zip:number = parseInt(checkText);
   weatherRequestStandard(zip);
   
 }else{
   
-      console.log(checkText);
        switch (checkText) {
          case 'tell me what the weather is':
          case 'get me the weather':
