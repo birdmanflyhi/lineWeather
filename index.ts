@@ -226,18 +226,21 @@ async function reply(sendThis:any){
 };
 
 //var numberText:number = parseInt(text);
-text.trim();
+text.trim().toLowerCase();
 
-if(( isNaN(parseInt(text)) == false  && text.length == 5))
+
+var checkText = text.replace(/'/, "");
+
+if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
-  console.log("it is a number: " +text);
-  var zip:number = parseInt(text);
+  console.log("it is a number: " +checkText);
+  var zip:number = parseInt(checkText);
   weatherRequestStandard(zip);
   
 }else{
   
-      console.log(text.trim().toLowerCase());
-       switch (text.trim().toLowerCase()) {
+      console.log(checkText);
+       switch (checkText) {
          case 'tell me what the weather is':
          case 'get me the weather':
          case 'what is the weather':
@@ -249,9 +252,9 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
            break;
          case 'weather new location':
          case 'new zip code':
-         case 'i\'m not at home':
-         case 'i\'m not at that location':
-         case 'that\'s not my address':
+         case 'im not at home':
+         case 'im not at that location':
+         case 'thats not my address':
          case 'different location':
          case 'new location':
            reply('Please give me the zip code');
