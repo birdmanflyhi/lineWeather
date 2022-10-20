@@ -229,14 +229,14 @@ async function reply(sendThis:any){
 text.trim().toLowerCase();
 
 
-var checkText = text.replace(/'/g, "").toLowerCase().trim();
+var checkText = text.replace(/‘/g, "").toLowerCase().trim();
 
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
   console.log("it is a number: " +checkText);
   var zip:number = parseInt(checkText);
   weatherRequestStandard(zip);
-  
+  that'
 }else{
   
       console.log(checkText);
