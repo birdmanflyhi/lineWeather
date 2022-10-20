@@ -235,7 +235,7 @@ if(( isNaN(parseInt(text)) == false  && text.length == 5))
   weatherRequestStandard(zip);
   
 }else{
-  const apostrophe = '\'';
+  const apostrophe = "'";
 
       console.log(text.trim().toLowerCase());
        switch (text.trim().toLowerCase()) {
