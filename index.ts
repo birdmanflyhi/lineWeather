@@ -107,7 +107,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       var comment = '';
       
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
-       
+       console.log(dayTime);
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
