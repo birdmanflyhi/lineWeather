@@ -131,7 +131,15 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
 
        }
 
-       
+       if(dayTime == 'day'){
+        if (hour == '9 PM'){
+          break;
+        }else if(hour.match(/^(6 AM|7 AM|8 AM|9 AM|10 AM|11 AM|12 PM |1 PM|2 PM|3 PM|4 PM|5 PM|6 PM|7 PM|8 PM|)$/)){
+            var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
+              //Check thunderstorms first, also any bad weather
+            weatherType(weatherID);
+        }
+       }
 
             function weatherType(weatherID:string){
               switch (weatherID) { 
@@ -253,7 +261,7 @@ var checkText = text.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase().trim();
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
   var zip:number = parseInt(checkText);
-  weatherRequestStandard(zip, 'pm');
+  weatherRequestStandard(zip, 'day');
   
 }else{
 
