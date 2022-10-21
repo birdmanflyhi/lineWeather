@@ -63,14 +63,15 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   var lat:number;
   var long:number;
   var zip:number;
+  var dayTime:string;
   
-  async function weatherRequestStandard(zip:number){
+  async function weatherRequestStandard(zip:number,dayTime:string){
 
     if(zip == 33907){
       lat = latitude;
       long = longitude;
 
-      weatherRequestExtended(lat, long);
+      weatherRequestExtended(lat, long, dayTime);
     } else{
      
       fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${apiKey}`)
@@ -79,14 +80,14 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       lat = data.lat;
       long = data.lon;
-      weatherRequestExtended(lat, long);
+      weatherRequestExtended(lat, long, dayTime);
      })
       
      };
 
   };
     
-  async function weatherRequestExtended(lat:number, long:number){
+  async function weatherRequestExtended(lat:number, long:number, dayTime:string){
    
    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely,daily&units=imperial&appid=${apiKey}`)
    .then((response) => response.json())
@@ -106,10 +107,21 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       var comment = '';
       
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
+       if(dayTime == 'pm'){
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
-           
+          executeHour();
+        };
+      }else if(dayTime == 'am'){
+          if(hour == '11 AM'){
+            break;
+          }else if(hour.match(/^(6 AM|7 AM|8 AM|9 AM|10 AM)$/)){
+            executeHour();
+          }
+       };
+        
+          function executeHour(){
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
             
@@ -204,17 +216,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   break;
                 default:
                   weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
-
-              }
-              
-        }
-
-    }
-    reply(response.join("\n"));
+           
+              }    
+        
+       
+                 reply(response.join("\n"));
     
-    }); 
+          }; 
+      };
    
-};
+   })
+  };
 
 async function reply(sendThis:any){
   const response: TextMessage = {
@@ -234,7 +246,7 @@ var checkText = text.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase().trim();
 if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
 {
   var zip:number = parseInt(checkText);
-  weatherRequestStandard(zip);
+  weatherRequestStandard(zip, 'pm');
   
 }else{
 
@@ -246,7 +258,7 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'get me the weather please':
          case 'please get me the weather':
          case 'weather':
-           weatherRequestStandard(33907);
+           weatherRequestStandard(33907, 'pm');
            break;
          case 'weather new location':
          case 'new zip code':
@@ -256,6 +268,9 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'different location':
          case 'new location':
            reply('Please give me the zip code');
+           break;
+         case 'weather am':
+           weatherRequestStandard(33907, 'am');
            break;
          case 'who is your creator':
          case 'who is your creator?':
