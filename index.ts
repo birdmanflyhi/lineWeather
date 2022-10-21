@@ -113,10 +113,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
-           
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
             weatherType(weatherID);
+        }
 
             function weatherType(weatherID:string){
               switch (weatherID) { 
@@ -212,7 +212,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+
                JSON.stringify(data.hourly[i].wind_speed)+ " |" + `\n`);
              }
-        }
+        
     }
     reply(response.join("\n"));
     
