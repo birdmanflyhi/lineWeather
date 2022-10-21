@@ -107,7 +107,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       var comment = '';
       
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
-       console.log(dayTime);
 
        if(dayTime== 'am'){
 
@@ -222,7 +221,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                 case '802':
                 case '803':  
                 case '804':
-                  weatherReply( hour +' ☁️' + ' Just some clouds, send it bro:');
+                  weatherReply(hour +' ☁️' + ' Just some clouds, send it bro:');
                   break;
                 default:
                   weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
