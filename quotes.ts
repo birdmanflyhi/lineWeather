@@ -56,6 +56,13 @@ export const motivateQuotes = [
     '“Run when you can, walk if you have to, crawl if you must; just never give up.”    — Dean Karnazes, Ultramarathon Runner and Author',
     'Running is all about having the desire to train and persevere until every fiber in your legs, mind, and heart is turned to steel. And when you’ve finally forged hard enough, you will have become the best runner you can be. And that’s all that you can ask for.”    — Paul Maurer',
     '“Climb mountains, not so the world can see you, but so you can see the world.”    — David McCoullough Jr. ',
-    '“The danger of adventure is worth a thousand days of ease and comfort.”    — Paulo Coelho'
+    '“The danger of adventure is worth a thousand days of ease and comfort.”    — Paulo Coelho',
+    '“To give anything less than your best, is to sacrifice the gift.”    - Prefontaine',
+    '“A lot of people run a race to see who is fastest. I run to see who has the most guts, who can punish himself into exhausting pace, and then at the end, punish himself even more.”    - Prefontaine',
+    '“Somebody may beat me, but they are going to have to bleed to do it.”    - Prefontaine',
+    '“My philosophy is that I\'m an artist. I perform an art not with a paint brush or a camera. I perform with bodily movement. Instead of exhibiting my art in a museum or a book or on canvas, I exhibit my art in front of the multitudes.”    - Prefontaine',
+    '“When people go to a track meet, they\'re looking for something, a world record, something that hasn\'t been done before. You get all this magnetic energy, people focusing on one thing at the same time. I really get excited about it. It makes me want to compete even more. It makes it all worthwhile, all the hours of hard work.”    - Prefonatine',
+    '"Only the disciplined ones in life are free. If you are undisciplined, you are a slave to your moods and your passions."    - Kipchoge',
+    '"No human is limited"    - Kipchoge'
     
 ]
