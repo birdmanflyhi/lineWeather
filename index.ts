@@ -108,20 +108,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
        console.log(dayTime);
+
+
         if (hour == '9 PM'){
           break;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
            
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
-            
-            function weatherReply(comment:string){
-             response.push(comment +  
-              " Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
-              JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+
-              JSON.stringify(data.hourly[i].wind_speed)+ " |" + `\n`);
-          
-            }
+            weatherType(weatherID);
+
+            function weatherType(weatherID:string){
               switch (weatherID) { 
                 case '210':
                   weatherReply(hour + ' 🌩️' + ' Just a light thunderstorm, should be ok: ');
@@ -208,6 +205,13 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
                   weatherReply(hour +' 🙊' + ' Oopsie. No weather id matched: ');
            
               }    
+            } 
+            function weatherReply(comment:string){
+              response.push(comment +  
+               " Temp:"+ JSON.stringify(data.hourly[i].temp)+ " | humidity:"+ 
+               JSON.stringify(data.hourly[i].humidity)+ " | wind speed:"+
+               JSON.stringify(data.hourly[i].wind_speed)+ " |" + `\n`);
+             }
         }
     }
     reply(response.join("\n"));
