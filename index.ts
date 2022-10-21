@@ -109,6 +109,17 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
       const hour =  dateObject.toLocaleString("en-US", {timeZone: 'America/New_York',hour: "numeric"});
        console.log(dayTime);
 
+       if(dayTime== 'am'){
+
+        if (hour == '10 AM'){
+          break;
+        }else if(hour.match(/^(6 AM|7 AM|8 AM|9 AM|10 AM|11 AM)$/)){
+            var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
+              //Check thunderstorms first, also any bad weather
+            weatherType(weatherID);
+        }
+
+       }else if(dayTime == 'pm'){
 
         if (hour == '9 PM'){
           break;
@@ -117,6 +128,10 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
               //Check thunderstorms first, also any bad weather
             weatherType(weatherID);
         }
+
+       }
+
+       
 
             function weatherType(weatherID:string){
               switch (weatherID) { 
