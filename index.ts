@@ -122,7 +122,7 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
        }else if(dayTime == 'pm'){
 
         if (hour == '9 PM'){
-          break;
+          continue;
         }else if(hour.match(/^(3 PM|4 PM|5 PM|6 PM|7 PM|8 PM)$/)){
             var weatherID = JSON.stringify(data.hourly[i].weather[0]['id']);
               //Check thunderstorms first, also any bad weather
