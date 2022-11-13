@@ -46,17 +46,6 @@ const textEventHandler = async (event: WebhookEvent): Promise<MessageAPIResponse
   const { text, emojis } = event.message;
   
 
-  const cheerio= require("cheerio");
-
-  async function quoteRequestMotivate(){
-    fetch('https://quotes.toscrape.com/random')
-    .then((response) => response.text())
-    .then((body) => {
-      const $ = cheerio.load(body);
-      reply($('.text').text());
-    }); 
-
-  };
 
   var latitude:number= 26.640628;
   var longitude:number = -81.8723084;
