@@ -268,6 +268,7 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'im not at home':
          case 'im not at that location':
          case 'thats not my address':
+         case 'that is not my address':
          case 'different location':
          case 'new location':
            reply('Please give me the zip code');
