@@ -283,6 +283,12 @@ if(( isNaN(parseInt(checkText)) == false  && checkText.length == 5))
          case 'who is matt':
           reply('Matt is my creator. My everything. He is my rock.');
            break;
+         case 'command list':
+         case 'list of commands':
+         case 'what can you do?':
+         case 'what can you do':
+          reply('type one of the following: weather || weather am || US zip code || motivate || who is your creator?');
+            break;
          case 'motivate me':
          case 'can you motivate me':
          case 'motivate':
