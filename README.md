@@ -1,6 +1,12 @@
 # LINE Echo Bot with TypeScript
 
 An example LINE bot to echo message with TypeScript. The bot is coded according to TypeScript's best practices.
+I combined two tutorials to build off of and form my own code on top. This was for educational purposes.
+
+Echo bot author: Nicholas Dwiarto <nicholasdwiarto@yahoo.com> (https://nicholasdw.com) 
+
+The Weather API author: Roy Kibet https://www.section.io/engineering-education/create-a-weather-app-in-nodejs-using-openweathermap-api/#prerequisites
+
 
 ## Prerequisite
 
